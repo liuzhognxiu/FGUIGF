@@ -1,0 +1,27 @@
+{
+  "objectStatus": {
+    "n60_q04g": {
+      "collapsed": true
+    },
+    "n23_slqr": {
+      "collapsed": true
+    },
+    "n22_slqr": {
+      "collapsed": true
+    },
+    "n39_p4i7": {
+      "collapsed": true,
+      "locked": true,
+      "hidden": true
+    },
+    "n51_hkmu": {
+      "locked": true,
+      "hidden": true
+    },
+    "n59_q04g": {
+      "collapsed": true
+    }
+  },
+  "adaptiveTest": true,
+  "fitScreen": "FitSize"
+}

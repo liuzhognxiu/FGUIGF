@@ -1,0 +1,20 @@
+{
+    "name": "Main.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:363c5eb08ff8e6a439b85e37b8c20d96",
+        "GUID:4a24cc3ea7d20714496395de4b57893d",
+        "GUID:4f9bd262772ee9d4f825b59047a32471",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:97701e354e7d47f4ea21db2a3a1e097b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

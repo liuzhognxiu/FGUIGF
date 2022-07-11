@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Dictionaries>
+  <Dictionary Language="ChineseSimplified">
+    <!-- Main -->
+    <String Key="Main.Name" Value="元域"/>
+    <!-- Login Form -->
+    <String Key="Login.PhoneNum" Value="请输入手机号"/>
+    <String Key="Login.VerifyCode" Value="请输入验证码"/>
+    <String Key="Login.SendVerify" Value="获取验证码"/>
+    <String Key="Login.Login" Value="登陆"/>
+    <String Key="Login.Join" Value="伪登陆"/>
+  </Dictionary>
+</Dictionaries>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="803,897">
+  <displayList>
+    <image id="n55_pf9z" name="n55" src="pf9zd" fileName="Img/action_text_warning.png" xy="49,0" pivot="0.5,0.5"/>
+    <image id="n56_pf9z" name="n56" src="pf9zd" fileName="Img/action_text_warning.png" xy="162,121" pivot="0.5,0.5"/>
+    <image id="n57_pf9z" name="n57" src="pf9zd" fileName="Img/action_text_warning.png" xy="270,717" pivot="0.5,0.5"/>
+    <image id="n58_pf9z" name="n58" src="pf9zd" fileName="Img/action_text_warning.png" xy="352,820" pivot="0.5,0.5"/>
+    <image id="n59_pf9z" name="n59" src="pf9ze" fileName="Img/frame_linetextframe_03_Demo1.png" xy="0,239" pivot="0.5,0.5"/>
+    <text id="n60_pf9z" name="n60" xy="264,384" pivot="0.5,0.5" size="283,129" fontSize="100" color="#ef0027" leading="6" text="BOSS"/>
+    <image id="n61_pf9z" name="n61" src="tjy82c" fileName="Component/Frame/frame_linetextframe_03_Demo2.png" pkg="5k4mce2l" xy="361,293" pivot="0.5,0.5"/>
+  </displayList>
+</component>

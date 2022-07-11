@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="y6jnnfnm">
+  <resources>
+    <component id="7kvi0" name="GameStart.xml" path="/Win/" exported="true"/>
+    <image id="7kvi1" name="background_00_title_1920.png" path="/Img/"/>
+    <image id="7kvi2" name="frame_linetextframe_02_1.png" path="/Img/" scale="9grid" scale9grid="207,4,414,8"/>
+    <image id="7kvi3" name="label_ribbon_01.png" path="/Img/" scale="9grid" scale9grid="120,23,240,46"/>
+    <component id="gs1z4" name="BtnGameStart.xml" path="/Com/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

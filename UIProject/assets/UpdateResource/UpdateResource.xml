@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <displayList>
+    <image id="n0_gs1z" name="n0" pkg="yxm5rfcq" src="gs1z1" fileName="background_00_title_1920.png" xy="-532,82" pivot="0.5,0.5"/>
+    <image id="n1_gs1z" name="n1" src="gs1z2" fileName="Img/background_00_title_1920.png" xy="-769,-8" pivot="0.5,0.5" size="2282,1284" aspect="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+  </displayList>
+</component>

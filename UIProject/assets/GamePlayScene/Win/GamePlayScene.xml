@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <displayList>
+    <image id="n7_tjy8" name="n7" src="pf9z3" fileName="Img/background_gradient_00.png" xy="0,0" pivot="0.5,0.5" size="720,1280">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n58_mbvt" name="n58" src="tjy8i3" fileName="Component/Popup/popup_02_frame1.png" pkg="5k4mce2l" xy="21,129" size="682,623">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <list id="n34_pf9z" name="listMap" xy="20,130" pivot="0.5,0" size="680,612" layout="flow_hz" selectionMode="multipleSingleClick" overflow="hidden" margin="12,0,14,0" lineGap="5" colGap="13" lineItemCount="8" defaultItem="ui://2xkw5xj3pf9z9">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <image id="n35_pf9z" name="n35" src="tjy8o8" fileName="Component/Demo_Icon/set_icon_stat_0.png" pkg="5k4mce2l" xy="163,779" pivot="0.5,0.5" group="n47_pf9z" color="#45d0b2"/>
+    <image id="n36_pf9z" name="n36" src="tjy8o9" fileName="Component/Demo_Icon/set_icon_stat_1.png" pkg="5k4mce2l" xy="163,841" pivot="0.5,0.5" group="n47_pf9z" color="#d14b39"/>
+    <image id="n37_pf9z" name="n37" src="tjy8ob" fileName="Component/Demo_Icon/set_icon_stat_3.png" pkg="5k4mce2l" xy="163,923" pivot="0.5,0.5" group="n47_pf9z" color="#68b9db"/>
+    <image id="n38_pf9z" name="n38" src="tjy8oi" fileName="Component/Button/status_frame.png" pkg="5k4mce2l" xy="156,986" pivot="0.5,0.5" size="228,68" group="n47_pf9z" alpha="0.702" color="#000000"/>
+    <image id="n39_pf9z" name="n39" src="tjy8oi" fileName="Component/Button/status_frame.png" pkg="5k4mce2l" xy="158,1066" pivot="0.5,0.5" size="228,68" group="n47_pf9z" alpha="0.702" color="#000000"/>
+    <image id="n40_pf9z" name="n40" src="tjy8ki" fileName="Component/UI_Etc/status_icon_gem.png" pkg="5k4mce2l" xy="163,986" pivot="0.5,0.5" group="n47_pf9z"/>
+    <image id="n41_pf9z" name="n41" src="tjy8kj" fileName="Component/UI_Etc/status_icon_gold.png" pkg="5k4mce2l" xy="163,1068" pivot="0.5,0.5" group="n47_pf9z"/>
+    <text id="n42_pf9z" name="n42" xy="217,769" pivot="0.5,0.5" size="46,42" group="n47_pf9z" font="Arial" fontSize="30" color="#45d0b2" text="HP"/>
+    <text id="n43_pf9z" name="n43" xy="217,842" pivot="0,0.5" size="84,42" group="n47_pf9z" fontSize="30" color="#d14b39" text="attack"/>
+    <text id="n44_pf9z" name="n44" xy="217,917" pivot="0,0.5" size="117,42" group="n47_pf9z" fontSize="30" color="#68b9db" text="Defense"/>
+    <text id="n45_pf9z" name="txtZuan" xy="236,999" pivot="0,0.5" size="89,42" group="n47_pf9z" fontSize="30" color="#ffffff" text="99999"/>
+    <component id="n48_pf9z" name="sldHP" src="pf9za" fileName="Com/ProgressBar1.xml" xy="396,779" pivot="0.5,0.5" size="186,18" group="n47_pf9z">
+      <ProgressBar value="50" max="100"/>
+    </component>
+    <text id="n50_pf9z" name="txtAttack" xy="502,842" pivot="0,0.5" size="38,42" group="n47_pf9z" fontSize="30" color="#d14b39" text="10"/>
+    <text id="n51_pf9z" name="txtDefense" xy="502,917" pivot="0,0.5" size="38,42" group="n47_pf9z" fontSize="30" color="#68b9db" text="10"/>
+    <text id="n46_pf9z" name="txtGold" xy="236,1080" pivot="0,0.5" size="89,42" group="n47_pf9z" fontSize="30" color="#ffffff" text="99999"/>
+    <group id="n47_pf9z" name="n47" xy="156,769" size="426,367" advanced="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </group>
+    <component id="n52_pf9z" name="sldMonster" src="pf9zb" fileName="Com/ProgressBar2.xml" xy="229,79" pivot="0.5,0.5" size="292,20">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <ProgressBar value="50" max="100"/>
+    </component>
+    <component id="n55_pf9z" name="comBoss" src="pf9zg" fileName="Com/WarningBoss.xml" xy="-42,10" pivot="0.5,0.5" visible="false"/>
+    <component id="n56_qq5q" name="btnStartMove" src="qq5qh" fileName="Com/BtnStartAttack.xml" xy="459,1008" pivot="0.5,0.5">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <loader id="n57_mbvt" name="btnClose" xy="653,16" pivot="0.5,0.5" size="40,40" url="ui://5k4mce2ltjy8i2"/>
+  </displayList>
+  <transition name="BossShow">
+    <item time="0" type="Alpha" target="n55_pf9z" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="0" type="Visible" target="n55_pf9z" value="true"/>
+    <item time="6" type="Alpha" target="n55_pf9z" tween="true" startValue="0" endValue="1" duration="6"/>
+    <item time="12" type="Alpha" target="n55_pf9z" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="18" type="Alpha" target="n55_pf9z" tween="true" startValue="0" endValue="1" duration="6"/>
+    <item time="24" type="Alpha" target="n55_pf9z" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="31" type="Visible" target="n55_pf9z" value="false"/>
+  </transition>
+</component>

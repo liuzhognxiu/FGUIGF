@@ -1,0 +1,28 @@
+using FairyGUI;
+
+namespace MetaArea.Hotfix
+{
+    public class ExtensionConfig
+    {
+        public ExtensionConfig()
+        {
+            ComponentExtension();
+            LoaderExtension();
+        }
+
+        public void ComponentExtension()
+        {
+			 #region auto generate not change
+			 
+			 #endregion
+        }
+
+        public void LoaderExtension()
+        {
+        }
+
+        public override void OnClose()
+        {
+        }
+    }
+}

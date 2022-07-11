@@ -1,0 +1,12 @@
+{
+  "langFiles": [
+    {
+      "name": "chinese",
+      "path": "..\\Assets\\Resources\\LocationConfig\\chinese.xml"
+    },
+    {
+      "name": "english",
+      "path": "..\\Assets\\Resources\\LocationConfig\\english.xml"
+    }
+  ]
+}

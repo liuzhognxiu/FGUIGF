@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="5kyofot5">
+  <resources>
+    <image id="tjy80" name="background_gradient_00.png" path="/Img/" scale="9grid" scale9grid="2,135,4,270"/>
+    <image id="tjy82" name="frame_linetextframe_02_1.png" path="/Img/" scale="9grid" scale9grid="207,4,414,8"/>
+    <image id="tjy83" name="background_00_title_1920.png" path="/Img/"/>
+    <image id="tjy84" name="label_ribbon_01.png" path="/Img/" scale="9grid" scale9grid="120,23,240,46"/>
+    <component id="tjy85" name="GameHall.xml" path="/Win/" exported="true"/>
+    <image id="tjy86" name="character_sample_00_l.png" path="/Img/"/>
+    <component id="tjy87" name="BtnEnter.xml" path="/Com/"/>
+    <component id="tjy88" name="BtnTap.xml" path="/Com/"/>
+    <component id="tjy8a" name="BagEquipItem.xml" path="/Com/"/>
+    <component id="pf9zb" name="ProgressBar1.xml" path="/Com/"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

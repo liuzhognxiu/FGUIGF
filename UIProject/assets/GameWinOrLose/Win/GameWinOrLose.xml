@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <controller name="isWin" pages="0,,1," selected="0"/>
+  <displayList>
+    <image id="n16_pis7" name="n16" src="pis72" fileName="Img/background_gradient_00.png" xy="5,-30" pivot="0.5,0.5" size="720,1280">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n4_elli" name="btnContinue" src="elli1" fileName="Win/BtnContinue.xml" xy="120,887" pivot="0.5,0.5">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <image id="n0_elli" name="n0" src="tjy82m" fileName="Component/Frame/frame_linetextframe_05_Demo.png" pkg="5k4mce2l" xy="-46,177" pivot="0.5,0.5" size="799,151" group="n5_elli" aspect="true"/>
+    <text id="n1_elli" name="n1" xy="169,221" pivot="0.5,0.5" size="375,65" group="n5_elli" fontSize="49" color="#f6e3e4" text="YOU ARE DEAD"/>
+    <text id="n2_elli" name="n2" xy="51,365" pivot="0.5,0.5" size="635,250" group="n5_elli" fontSize="30" color="#ffffff" autoSize="none" text="Earn items as you battle, level up your heroes and improve your gear.&#xA;&#xD;If you use an item in a mission that you have already experienced,&#xA;you will immediately receive the reward."/>
+    <group id="n5_elli" name="n5" xy="-46,177" size="799,437" advanced="true">
+      <gearDisplay controller="isWin" pages="0"/>
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </group>
+    <image id="n6_elli" name="n6" src="tjy8hr" fileName="Component/Label/label_ribbon_00.png" pkg="5k4mce2l" xy="9,167" pivot="0.5,0.5" size="712,136" group="n15_elli"/>
+    <text id="n7_elli" name="n7" xy="181,190" pivot="0.5,0.5" size="367,66" group="n15_elli" fontSize="50" color="#fbf4bd" align="center" text="STAGE CLEAR!"/>
+    <image id="n8_elli" name="n8" src="tjy8lw" fileName="Component/Demo_Icon/icon_star_result_n.png" pkg="5k4mce2l" xy="283,324" pivot="0.5,0.5" group="n15_elli"/>
+    <image id="n9_elli" name="n9" src="tjy8lw" fileName="Component/Demo_Icon/icon_star_result_n.png" pkg="5k4mce2l" xy="441,368" pivot="0.5,0.5" group="n15_elli" scale="0.8,0.8"/>
+    <image id="n10_elli" name="n10" src="tjy8lw" fileName="Component/Demo_Icon/icon_star_result_n.png" pkg="5k4mce2l" xy="132,368" pivot="0.5,0.5" group="n15_elli" scale="0.8,0.8"/>
+    <image id="n11_elli" name="n11" src="tjy8lw" fileName="Component/Demo_Icon/icon_star_result_n.png" pkg="5k4mce2l" xy="20,443" pivot="0.5,0.5" group="n15_elli" scale="0.5,0.5"/>
+    <image id="n12_elli" name="n12" src="tjy8lw" fileName="Component/Demo_Icon/icon_star_result_n.png" pkg="5k4mce2l" xy="535,443" pivot="0.5,0.5" group="n15_elli" scale="0.5,0.5"/>
+    <image id="n13_elli" name="n13" src="tjy87i" fileName="Component/ItemIcon/icon_itemicon_trophy.png" pkg="5k4mce2l" xy="188,555" pivot="0.5,0.5" size="346,256" group="n15_elli" aspect="true"/>
+    <group id="n15_elli" name="n15" xy="9,167" size="712,644" advanced="true">
+      <gearDisplay controller="isWin" pages="1"/>
+    </group>
+  </displayList>
+  <transition name="Win">
+    <item time="0" type="Alpha" target="n7_elli" tween="true" startValue="0" endValue="1" duration="8"/>
+    <item time="0" type="Shake" target="n13_elli" value="3,0.5"/>
+    <item time="0" type="Shake" target="n6_elli" value="6,0.5"/>
+    <item time="0" type="XY" target="n10_elli" tween="true" startValue="192,471" endValue="132,368" duration="8"/>
+    <item time="0" type="XY" target="n11_elli" tween="true" startValue="140,503" endValue="20,443" duration="8"/>
+    <item time="0" type="XY" target="n12_elli" tween="true" startValue="400,476" endValue="535,443" duration="8"/>
+    <item time="0" type="XY" target="n8_elli" tween="true" startValue="280,456" endValue="283.5,324.5" duration="8"/>
+    <item time="0" type="XY" target="n9_elli" tween="true" startValue="363,466" endValue="441,368" duration="8"/>
+  </transition>
+</component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="ydlhysnw">
+  <resources>
+    <image id="gs1z1" name="frame_linetextframe_02_1.png" path="/Img/" scale="9grid" scale9grid="207,4,414,8"/>
+    <image id="gs1z3" name="label_ribbon_01.png" path="/Img/" scale="9grid" scale9grid="120,23,240,46"/>
+    <component id="gs1z4" name="GameLoading.xml" path="/Win/" exported="true"/>
+    <image id="gs1z5" name="background_01_loading_1920.png" path="/Img/"/>
+    <image id="gs1z6" name="slider_edgetype_03_fill.png" path="/Img/"/>
+    <image id="gs1z7" name="slider_edgetype_03_frame.png" path="/Img/" scale="9grid" scale9grid="76,21,152,42"/>
+    <component id="gs1z9" name="GameloadBar.xml" path="/Com/"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

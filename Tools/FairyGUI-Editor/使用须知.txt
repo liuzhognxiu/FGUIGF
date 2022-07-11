@@ -1,0 +1,69 @@
+FairyGUI-Editor  编辑器目录
+m3slg\trunk\ClientPublish\M3SLG_U3DProj\UIProject     工程目录
+
+新建的目录必须是基于FairyProject目录之下并且独立的目录。
+例如Login界面:
+目录结构应该是FairyProject/Login/
+在login目录下去处理相关的资源
+
+
+命名规范：
+
+每个包一个目录
+单个功能界面目录结构
+包名：功能名称
+Com：场景组件
+Img：场景图片
+Win：场景界面  （e.g.  :  LoadingComponent）
+
+如果一个功能一个主界面+多个子界面，划分到同一个分组里
+
+公共资源放这个目录
+ResourcesPackage
+
+资源命名规范：
+txtXXX
+listXXX
+ctrlXXX
+sldrXXX
+imgXXX
+btnXXX
+loadXXX
+tranXXX
+
+
+UI工作流程
+操作顺序： PSD文件 -> psd2fgui转化为 .fairypackage 文件 -> FairyGUI进行二次更改 -> 导入进Unity之中 直接使用。
+
+
+psd2fgui使用说明：
+1.安装node环境（官网：https://nodejs.org/zh-cn/）
+npm install -g psd2fgui
+
+2.执行转换
+psd2fgui text.psd
+
+如果成功转换，输出为：
+test.psd-&gt;test.fairypackage
+buildId: mlmjpf0dc7zp
+
+3.使用FairyGUI编辑器，主菜单->资源->导入资源包，然后选择刚生成的test.fairypackage
+
+4.界面调整
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

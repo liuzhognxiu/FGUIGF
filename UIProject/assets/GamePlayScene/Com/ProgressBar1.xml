@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="50,18" extention="ProgressBar">
+  <displayList>
+    <image id="n0_pf9z" name="n0" src="tjy8iq" fileName="Component/Slider/slider_edgetype_02_frame_back.png" pkg="5k4mce2l" xy="0,0" size="50,18">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_pf9z" name="bar" src="tjy8ip" fileName="Component/Slider/slider_edgetype_02_fill.png" pkg="5k4mce2l" xy="0,2" size="50,14">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n2_pf9z" name="n2" src="tjy8jl" fileName="Component/Slider/slider_icontype_03_frame.png" pkg="5k4mce2l" xy="-15,-3" pivot="0.5,0" size="82,27">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+  </displayList>
+  <ProgressBar/>
+</component>

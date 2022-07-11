@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="180,111" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n0_l2kn" name="n0" src="tjy8d" fileName="Component/Button/btn_rectangle_01_n_green.png" pkg="5k4mce2l" xy="0,0">
+      <gearDisplay controller="button" pages="0,2"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_l2kn" name="n1" src="tjy8d" fileName="Component/Button/btn_rectangle_01_n_green.png" pkg="5k4mce2l" xy="0,0">
+      <gearDisplay controller="button" pages="1,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_l2kn" name="text_Message" xy="10,21" pivot="0.5,0.5" size="158,66" font="FangSong" fontSize="24" color="#cbbba4" autoSize="none" text=""/>
+  </displayList>
+  <Button/>
+</component>

@@ -1,0 +1,7 @@
+﻿Library
+Logs
+Temp
+UserSettings
+*.csproj
+gf-fgui.sln
+obj/Debug

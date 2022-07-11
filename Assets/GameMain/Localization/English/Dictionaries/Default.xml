@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Dictionaries>
+  <Dictionary Language="English">
+    <!-- Main -->
+    <String Key="Main.Name" Value="Meta Area"/>
+    <!-- Login Form -->
+    <String Key="Login.PhoneNum" Value="Input phone number"/>
+    <String Key="Login.VerifyCode" Value="Input SNS Code"/>
+    <String Key="Login.SendVerify" Value="Get SNS Code"/>
+    <String Key="Login.Login" Value="Login"/>
+    <String Key="Login.Join" Value="Join"/>
+  </Dictionary>
+</Dictionaries>

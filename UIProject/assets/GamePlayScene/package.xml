@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="2xkw5xj3">
+  <resources>
+    <image id="pf9z3" name="background_gradient_00.png" path="/Img/" scale="9grid" scale9grid="2,135,4,270"/>
+    <image id="pf9z4" name="frame_linetextframe_02_1.png" path="/Img/" scale="9grid" scale9grid="207,4,414,8"/>
+    <image id="pf9z5" name="background_00_title_1920.png" path="/Img/"/>
+    <image id="pf9z6" name="label_ribbon_01.png" path="/Img/" scale="9grid" scale9grid="120,23,240,46"/>
+    <image id="pf9z7" name="character_sample_00_l.png" path="/Img/"/>
+    <component id="pf9z8" name="GamePlayScene.xml" path="/Win/" exported="true"/>
+    <component id="pf9z9" name="BtnMap.xml" path="/Com/"/>
+    <component id="pf9za" name="ProgressBar1.xml" path="/Com/"/>
+    <component id="pf9zb" name="ProgressBar2.xml" path="/Com/"/>
+    <image id="pf9zd" name="action_text_warning.png" path="/Img/"/>
+    <image id="pf9ze" name="frame_linetextframe_03_Demo1.png" path="/Img/"/>
+    <image id="pf9zf" name="background_gradient_01.png" path="/Img/"/>
+    <component id="pf9zg" name="WarningBoss.xml" path="/Com/"/>
+    <component id="qq5qh" name="BtnStartAttack.xml" path="/Com/"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

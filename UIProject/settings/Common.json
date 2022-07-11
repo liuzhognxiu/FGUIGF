@@ -1,0 +1,53 @@
+{
+  "font": "ui://owc250ehs0anr",
+  "fontSize": 24,
+  "textColor": "#cbbba4",
+  "fontAdjustment": false,
+  "colorScheme": [
+    "蓝色Btn正常 #DCFAFF",
+    "蓝色Btn投影 #273EA5",
+    "蓝色Btn置灰 #C7D3D7",
+    "黄色Btn正常 #FFFCDC",
+    "黄色Btn投影 #45261B",
+    "黄色Btn置灰 #DFDCC7",
+    "橙色Btn正常 #FFEBCF",
+    "橙色Btn投影 #45261B",
+    "橙色Btn置灰 #E3D3BE",
+    "棕色Btn正常 #E5D6BC",
+    "棕色Btn投影 #4D3127",
+    "Tab正常 #743E16",
+    "Tab置灰 #FFF3DB",
+    "Tab正常投影 #FFFAE5",
+    "Tab置灰投影 #635139",
+    "Toggle正常 #FFE2A3",
+    "Toogle置灰 #D6C09A",
+    "独立Tab正常 #7A3E20",
+    "独立Tab置灰 #D4C294",
+    "独立Tab正常投影 #FFFCEB",
+    "独立Tab置灰投影 #39312A"
+  ],
+  "fontSizeScheme": [
+    "18号 18",
+    "20号 20",
+    "22号 22",
+    "24号 24",
+    "32号 32",
+    "26号 26",
+    "28号 28",
+    "30号 30",
+    "36号 36"
+  ],
+  "fontScheme": [
+    "雅黑 ui://owc250ehprtv0",
+    "仿真隶变简 ui://owc250ehs0anr"
+  ],
+  "scrollBars": {
+    "horizontal": "",
+    "vertical": "",
+    "defaultDisplay": "visible"
+  },
+  "tipsRes": "",
+  "buttonClickSound": "",
+  "pivot": "center",
+  "fileName": "Common"
+}

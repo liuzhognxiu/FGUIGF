@@ -1,0 +1,27 @@
+namespace MetaArea.Hotfix
+{
+    public partial class FGUI{ClassName}FormLogic : FGUIPanelFrom
+    {
+
+        protected override void OnInit(object userData)
+        {
+            base.OnInit(userData);
+            GetBindComponents();
+        }
+
+        protected override void OnOpen()
+        {
+            base.OnOpen();
+        }
+
+        protected override void OnClose()
+        {
+            base.OnClose();
+        }
+
+        protected override void OnRecycle()
+        {
+            base.OnRecycle();
+        }
+    }
+}

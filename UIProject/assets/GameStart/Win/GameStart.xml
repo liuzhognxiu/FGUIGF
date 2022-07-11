@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <displayList>
+    <image id="n0_7kvi" name="n0" src="7kvi1" fileName="Img/background_00_title_1920.png" xy="-770,-4" pivot="0.5,0.5" size="2282,1284" aspect="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n4_7kvi" name="n4" src="7kvi3" fileName="Img/label_ribbon_01.png" xy="54,193" pivot="0.5,0.5" size="625,95"/>
+    <component id="n1_7kvi" name="btnStart" src="gs1z4" fileName="Com/BtnGameStart.xml" xy="-58,985" pivot="0.5,0.5">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <text id="n3_7kvi" name="n3" xy="-32,180" pivot="0.5,0.5" size="786,88" fontSize="67" color="#ffffff" align="center" vAlign="middle" autoSize="none" faceDilate="0.133" text="Line Warrior">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <graph id="n5_7kvi" name="Star" xy="289,769" pivot="0.5,0.5" size="100,100" type="rect" lineColor="#00000000" fillColor="#00ffffff"/>
+    <component id="n9_e2rk" name="Btn_Test1" src="l2kn1" fileName="Button/GreenButton.xml" pkg="ymvmng82" xy="271,865" pivot="0.5,0.5"/>
+    <component id="n10_e2rk" name="Panel_Test2" src="l2kn0" fileName="Button/TestCom.xml" pkg="ymvmng82" xy="-48,238" pivot="0.5,0.5"/>
+  </displayList>
+</component>

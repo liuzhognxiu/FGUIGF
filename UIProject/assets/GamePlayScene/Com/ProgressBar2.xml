@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="50,20" extention="ProgressBar">
+  <displayList>
+    <image id="n0_pf9z" name="n0" src="tjy8il" fileName="Component/Slider/slider_edgetype_01_frame_back.png" pkg="5k4mce2l" xy="0,0" size="50,20">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_pf9z" name="bar" src="tjy8ik" fileName="Component/Slider/slider_edgetype_01_fill.png" pkg="5k4mce2l" xy="0,4" size="50,12">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n3_pf9z" name="n3" src="tjy8ih" fileName="Component/Slider/slider_edgetype_00_frame_front.png" pkg="5k4mce2l" xy="-56,-10" pivot="0.5,0.5" size="162,42">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n4_pf9z" name="n4" xy="-38,-45" pivot="0.5,0.5" size="126,36" fontSize="24" color="#ff2e21" align="center" vAlign="middle" autoSize="none" text="BOSS">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+  <ProgressBar/>
+</component>

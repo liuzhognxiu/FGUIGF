@@ -1,0 +1,18 @@
+//注意：不为组件中使用默认名称的元素生成代码
+
+using FairyGUI;
+
+namespace MetaArea.Hotfix
+{
+    public partial class FGUI{ClassName}FormLogic
+    {
+ 
+		#region declare start, auto generate not change
+		#endregion declare end
+        void GetBindComponents()
+        {
+			#region define start, auto generate not change
+			#endregion define end
+        }
+    }
+}

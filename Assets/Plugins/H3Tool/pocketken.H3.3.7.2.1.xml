@@ -1,0 +1,1584 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>pocketken.H3.3.7.2.1</name>
+    </assembly>
+    <members>
+        <member name="M:H3.Algorithms.Lines.DistanceTo(H3.H3Index,H3.H3Index)">
+             <summary>
+             Produces the grid distance between the two indexes.
+            
+             This function may fail to find the distance between two indexes, for
+             example if they are very far apart. It may also fail when finding
+             distances for indexes on opposite sides of a pentagon.
+             </summary>
+             <param name="origin">index to find distance from</param>
+             <param name="destination">index to find distance to</param>
+             <returns>grid distance in cells; -1 if could not be computed</returns>
+        </member>
+        <member name="M:H3.Algorithms.Lines.LineTo(H3.H3Index,H3.H3Index)">
+            <summary>
+            Given two H3 indexes, return the line of indexes between them (inclusive).
+            </summary>
+            <remarks>
+            This function may fail to find the line between two indexes, for
+            example if they are very far apart. It may also fail when finding
+            distances for indexes on opposite sides of a pentagon.
+            - The specific output of this function should not be considered stable
+              across library versions. The only guarantees the library provides are
+              that the line length will be `DistanceTo(start, end) + 1` and that
+              every index in the line will be a neighbor of the preceding index.
+            - Lines are drawn in grid space, and may not correspond exactly to either
+              Cartesian lines or great arcs.
+            </remarks>
+            <param name="origin">start index of the line</param>
+            <param name="destination">end index of the line</param>
+            <returns>all points from start to end, inclusive; empty if could not
+            compute a line</returns>
+        </member>
+        <member name="T:H3.Algorithms.VertexTestMode">
+            <summary>
+            The vertex testing mode to use when checking containment during
+            polyfill operations.
+            </summary>
+        </member>
+        <member name="F:H3.Algorithms.VertexTestMode.Center">
+            <summary>
+            Specifies that the index's center vertex should be contained
+            within the geometry.  This matches the polyfill behaviour of
+            the upstream library.
+            </summary>
+        </member>
+        <member name="F:H3.Algorithms.VertexTestMode.Any">
+            <summary>
+            Specifies that any of the index's boundary vertices can be
+            contained within the geometry.
+            </summary>
+        </member>
+        <member name="F:H3.Algorithms.VertexTestMode.All">
+            <summary>
+            Specifies that all of the index's boundary vertices must be
+            contained within the geometry.
+            </summary>
+        </member>
+        <member name="T:H3.Algorithms.Polyfill">
+            <summary>
+            Polyfill algorithms for H3Index.
+            </summary>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.Fill(NetTopologySuite.Geometries.Geometry,System.Int32,H3.Algorithms.VertexTestMode)">
+            <summary>
+            Returns all of the H3 indexes that are contained within the provided
+            Polygon at the specified resolution.  Supports Polygons with holes.
+            </summary>
+            <param name="polygon">Containment polygon</param>
+            <param name="resolution">H3 resolution</param>
+            <param name="testMode">Specify which <see cref="T:H3.Algorithms.VertexTestMode"/> to use when checking
+            index vertex containment.  Defaults to <see cref="F:H3.Algorithms.VertexTestMode.Center"/></param>.
+            <returns>Indices that are contained within polygon</returns>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.FillUsingCenterVertex(NetTopologySuite.Algorithm.Locate.IPointOnGeometryLocator,System.Collections.Generic.Stack{H3.H3Index},System.Collections.Generic.ISet{System.UInt64})">
+            <summary>
+            Performs a polyfill operation utilizing the center <see cref="T:H3.Model.GeoCoord"/> of each index produced
+            during the fill.
+            </summary>
+            <param name="locator"></param>
+            <param name="toSearch"></param>
+            <param name="searched"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.FillUsingAnyVertex(NetTopologySuite.Algorithm.Locate.IPointOnGeometryLocator,System.Collections.Generic.Stack{H3.H3Index},System.Collections.Generic.ISet{System.UInt64})">
+            <summary>
+            Performs a polyfill operation utilizing any <see cref="T:H3.Model.GeoCoord"/> from the cell boundary of each
+            index produced during the fill.
+            </summary>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.FillUsingAllVertices(NetTopologySuite.Algorithm.Locate.IPointOnGeometryLocator,System.Collections.Generic.Stack{H3.H3Index},System.Collections.Generic.ISet{System.UInt64})">
+            <summary>
+            Performs a polyfill operation utilizing all <see cref="T:H3.Model.GeoCoord"/>s from the cell boundary of each
+            index produced during the fill.
+            </summary>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.Fill(NetTopologySuite.Geometries.LineString,System.Int32)">
+            <summary>
+            Returns all of the H3 indexes that follow the provided LineString
+            at the specified resolution.
+            </summary>
+            <param name="polyLine"></param>
+            <param name="resolution"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.TraceCoordinates(NetTopologySuite.Geometries.Coordinate[],System.Int32)">
+            <summary>
+            Gets all of the H3 indices that define the provided set of <see cref="T:NetTopologySuite.Geometries.Coordinate"/>s.
+            </summary>
+            <param name="coordinates"></param>
+            <param name="resolution"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.IsTransMeridian(NetTopologySuite.Geometries.Geometry)">
+            <summary>
+            Determines whether or not the geometry is flagged as transmeridian;
+            that is, has an arc > 180 deg lon.
+            </summary>
+            <param name="geometry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Algorithms.Polyfill.SplitGeometry(NetTopologySuite.Geometries.Geometry)">
+            <summary>
+            Attempts to split a polygon that spans the antemeridian into
+            a multipolygon by clipping coordinates on either side of it and
+            then unioning them back together again.
+            </summary>
+            <param name="originalGeometry"></param>
+            <returns></returns>
+        </member>
+        <member name="T:H3.Algorithms.RingCell">
+            <summary>
+            Holder for indexes produced from the k ring functions.
+            </summary>
+        </member>
+        <member name="P:H3.Algorithms.RingCell.Index">
+            <summary>
+            H3 index
+            </summary>
+        </member>
+        <member name="P:H3.Algorithms.RingCell.Distance">
+            <summary>
+            k cell distance from the origin (ring level)
+            </summary>
+        </member>
+        <member name="T:H3.Algorithms.HexRingPentagonException">
+            <summary>
+            Indicates that k-ring traversal failed due to the ring starting on
+            a pentagon or due to encountering indexes within the pentagon distortion
+            area.
+            </summary>
+        </member>
+        <member name="T:H3.Algorithms.HexRingKSequenceException">
+            <summary>
+            Indicates that k-ring traversal failed due to the ring encountering
+            an index with deleted k-subsequence distortion.
+            </summary>
+        </member>
+        <member name="T:H3.Algorithms.Rings">
+            <summary>
+            Extends the H3Index class with support for kRing and hex ring queries.
+            </summary>
+        </member>
+        <member name="M:H3.Algorithms.Rings.GetHexRing(H3.H3Index,System.Int32)">
+             <summary>
+             Returns the "hollow" ring of cells at exactly grid distance k from
+             the origin cell. In particular, k=0 returns just the origin cell.
+            
+             An exception may be thrown in some cases, for example if a pentagon is
+             encountered.
+             </summary>
+             <param name="origin"></param>
+             <param name="k"></param>
+             <returns></returns>
+        </member>
+        <member name="M:H3.Algorithms.Rings.GetKRing(H3.H3Index,System.Int32)">
+             <summary>
+             Produce cells from the given origin cell within distance k.  This first
+             attempts to use the GetKRingFast method, and falls back to GetKRingSlow if
+             the fast method fails (e.g. pentagonal distortion).
+            
+             k-ring 0 is defined as the origin cell, k-ring 1 is defined as k-ring 0 and
+             all neighboring cells, and so on.
+            
+             Results are provided in no particular order.
+             </summary>
+             <param name="origin"></param>
+             <param name="k"></param>
+             <returns></returns>
+        </member>
+        <member name="M:H3.Algorithms.Rings.GetKRingSlow(H3.H3Index,System.Int32)">
+             <summary>
+             Iteratively produces indexes within k cell distance of the origin index.  This
+             is a higher-accuracy but slower version of GetKRingFast.
+            
+             k-ring 0 is defined as the origin index, k-ring 1 is defined as k-ring 0 and
+             all neighboring indexes, and so on.
+             </summary>
+             <param name="origin">Origin location</param>
+             <param name="k">k >= 0</param>
+             <returns>all neighbours within k cell distance</returns>
+        </member>
+        <member name="M:H3.Algorithms.Rings.GetKRingFast(H3.H3Index,System.Int32)">
+             <summary>
+             Produces indexes within k cell distance of the origin index.  This is a
+             lower-accuracy but faster version of GetKRingSlow.
+            
+             k-ring 0 is defined as the origin index, k-ring 1 is defined as k-ring 0 and
+             all neighboring indexes, and so on.
+            
+             Output behavior is undefined when one of the indexes returned by this
+             function is a pentagon or is in the pentagon distortion area.
+             </summary>
+             <param name="origin">Origin location</param>
+             <param name="k">k >= 0</param>
+             <returns>Enumerable set of RingCell, or an exception if a traversal error is
+             encountered (eg pentagon)</returns>
+        </member>
+        <member name="F:H3.Constants.EPSILON_DEG">
+            epsilon of ~0.1mm in degrees 
+        </member>
+        <member name="F:H3.Constants.EPSILON_RAD">
+            epsilon of ~0.1mm in radians 
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.ToCoordinate(H3.H3Index,NetTopologySuite.Geometries.Coordinate,H3.Model.FaceIJK)">
+            <summary>
+            Determines the spherical coordinates of the center point of a <see cref="T:H3.H3Index"/>.
+            </summary>
+            <param name="inputIndex"></param>
+            <param name="result">optional result object; defaults to new <see cref="T:NetTopologySuite.Geometries.Coordinate"/>
+            instance.</param>
+            <param name="toUpdateFaceIjk">Optional <see cref="T:H3.Model.FaceIJK"/> object to use during
+            conversion (useful to reduce allocations when performing many coordinate conversions);
+            defaults to a new instance if not provided.</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.ToH3Index(NetTopologySuite.Geometries.Coordinate,System.Int32,H3.Model.FaceIJK,H3.Model.Vec3d)">
+            <summary>
+            Convert a <see cref="T:NetTopologySuite.Geometries.Coordinate"/> to a H3 index at the specified resolution.
+            </summary>
+            <param name="coordinate"></param>
+            <param name="resolution"></param>
+            <param name="faceIjk">optional <see cref="T:H3.Model.FaceIJK"/> instance to re-use for the conversion</param>
+            <param name="v3d">optional <see cref="T:H3.Model.Vec3d"/> instance to re-use for the conversion</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.GetFaces(H3.H3Index)">
+            <summary>
+            Find all icosahedron faces intersected by a given H3 index, represented
+            as integers from 0-19. The results are sparse; since 0 is a valid value,
+            invalid values are represented as -1. It is the responsibility of the
+            caller to filter out invalid values.
+            </summary>
+            <returns>Faces intersected by the index</returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.CellAreaInRadiansSquared(H3.H3Index)">
+             <summary>
+             Area of H3 cell in radians^2.
+            
+             The area is calculated by breaking the cell into spherical triangles and
+             summing up their areas. Note that some H3 cells (hexagons and pentagons)
+             are irregular, and have more than 6 or 5 sides.
+             </summary>
+             <param name="index">H3 cell</param>
+             <returns>area in radians^2</returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.CellAreaInKmSquared(H3.H3Index)">
+            <summary>
+            Area of H3 cell in kilometers^2.
+            </summary>
+            <param name="index">H3 cell</param>
+            <returns>area in km^2</returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.CellAreaInMSquared(H3.H3Index)">
+            <summary>
+            Area of H3 cell in m^2.
+            </summary>
+            <param name="index">H3 cell</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.GetRadiusInKm(H3.H3Index)">
+            <summary>
+            Determines the radius of a given cell in Km
+            </summary>
+            <param name="index">H3Index to get area for</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.GetCellBoundaryVertices(H3.H3Index,H3.Model.FaceIJK)">
+            <summary>
+            Determines the cell boundary vertices in spherical coordinates for
+            a given H3 index.
+            </summary>
+            <param name="index">H3Index to get boundary for</param>
+            <param name="toUpdateIjk">Optional <see cref="T:H3.Model.FaceIJK"/> to be used
+            for index coordinate conversions; defaults to none.  Useful for
+            reducing allocations when producing boundaries for a large number
+            of indices.</param>
+            <returns>boundary coordinates</returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.GetCellBoundary(H3.H3Index,NetTopologySuite.Geometries.GeometryFactory)">
+            <summary>
+            Generates a Polygon of the cell boundary for a given H3 index.
+            </summary>
+            <param name="index"></param>
+            <param name="geomFactory">Optional GeometryFactory to be used to create
+            Polygon instance.  Note that vertex coordinates are provided in EPSG
+            4326 (WGS84)</param>
+            <returns>Polygon for cell boundary</returns>
+        </member>
+        <member name="M:H3.Extensions.H3GeometryExtensions.GetCellBoundaries(System.Collections.Generic.IEnumerable{H3.H3Index},NetTopologySuite.Geometries.GeometryFactory)">
+            <summary>
+            Generates a Multi-Polygon containing all of the cell boundaries for
+            a given set of H3 indices.
+            </summary>
+            <param name="indices"></param>
+            <param name="geomFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="T:H3.Extensions.H3HierarchyExtensions">
+            <summary>
+            Extends the H3Index class with support for bitwise hierarchial queries.
+            </summary>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.GetDirectNeighbour(H3.H3Index,H3.Model.Direction,System.Int32)">
+             <summary>
+             Returns the cell index neighboring the origin, in the direction dir.
+            
+             Implementation note: The only reachable case where this returns 0 is if the
+             origin is a pentagon and the translation is in the k direction. Thus,
+             0 can only be returned if origin is a pentagon.
+             </summary>
+             <param name="origin">Origin index</param>
+             <param name="direction">Direction to move in</param>
+             <param name="rotations">Number of CCW rotations to perform to reorient the
+             translation vector. Will be modified to the new number of rotations to perform
+             (such as when crossing a face edge.)</param>
+             <returns>H3Index of the specified neighbor or H3_NULL if deleted k-subsequence
+             distortion is encountered.</returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.GetNeighbours(H3.H3Index)">
+            <summary>
+            Gets all of the neighbouring cells of <paramref name="origin"/>.  This is just a wrapper
+            around calling <see cref="M:H3.Extensions.H3HierarchyExtensions.GetDirectNeighbour(H3.H3Index,H3.Model.Direction,System.Int32)"/> for each <see cref="T:H3.Model.Direction"/> and
+            filtering for <see cref="F:H3.H3Index.Invalid"/>.
+            </summary>
+            <param name="origin">cell to get neighbours of</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.DirectionForNeighbour(H3.H3Index,H3.H3Index)">
+             <summary>
+             Get the direction from the origin to a given neighbor. This is effectively
+             the reverse operation for NeighborRotations. Returns Direction.Invalid if the
+             cells are not neighbors.
+            
+             TODO: This is currently a brute-force algorithm, but as it's O(6) that's
+             probably acceptable.
+             </summary>
+             <param name="origin"></param>
+             <param name="destination"></param>
+             <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.IsNeighbour(H3.H3Index,H3.H3Index)">
+            <summary>
+            Returns whether or not the provided H3Indexes are neighbours.
+            </summary>
+            <param name="origin">Origin H3 index</param>
+            <param name="destination">Destination H3 index</param>
+            <returns>true if indexes are neighbours, false if not</returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.GetParentForResolution(H3.H3Index,System.Int32)">
+            <summary>
+            Produces the parent index for a given H3 index at the specified
+            resolution.
+            </summary>
+            <param name="origin">origin index</param>
+            <param name="parentResolution">parent resolution, must be &gt;= 0 &lt; resolution</param>
+            <returns>H3Index of parent</returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.GetDirectChild(H3.H3Index,H3.Model.Direction)">
+            <summary>
+            Returns the immediate child index based on the specified cell number.
+            Bit operations only, could generate invalid indexes if not careful
+            (deleted cell under a pentagon).
+            </summary>
+            <param name="origin">origin index</param>
+            <param name="direction">direction to travel</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.GetChildCenterForResolution(H3.H3Index,System.Int32)">
+            <summary>
+            Produces the center child index for a given H3 index at the specified
+            resolution.
+            </summary>
+            <param name="origin">origin index to find center of</param>
+            <param name="childResolution">the resolution to switch to, must be &gt; resolution &lt;= MAX_H3_RES</param>
+            <returns>H3Index of the center child, or H3Index.Invalid if you actually asked for a parent</returns>
+        </member>
+        <member name="M:H3.Extensions.H3HierarchyExtensions.GetChildrenForResolution(H3.H3Index,System.Int32)">
+            <summary>
+            Takes the given cell id and generates all of the children at the specified
+            resolution.
+            </summary>
+            <param name="origin">index to find children for</param>
+            <param name="childResolution">resolution of child level</param>
+            <returns></returns>
+        </member>
+        <member name="T:H3.Extensions.H3LocalIJExtensions">
+             <summary>
+             Extends the H3Index class with support for generating LocalIJ coordinates.
+            
+             This functionality is experimental, and its output is not guaranteed
+             to be compatible across different versions of H3.
+             </summary>
+        </member>
+        <member name="M:H3.Extensions.H3LocalIJExtensions.ToLocalIJ(H3.H3Index,H3.H3Index)">
+             <summary>
+             Produces ij coordinates for an index anchored by an origin.
+            
+             The coordinate space used by this function may have deleted
+             regions or warping due to pentagonal distortion.
+            
+             Coordinates are only comparable if they come from the same
+             origin index.
+            
+             Failure may occur if the index is too far away from the origin
+             or if the index is on the other side of a pentagon.
+            
+             This function is experimental, and its output is not guaranteed
+             to be compatible across different versions of H3.
+             </summary>
+             <param name="origin"></param>
+             <param name="index"></param>
+             <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3LocalIJExtensions.FromLocalIJ(H3.H3Index,H3.Model.CoordIJ)">
+             <summary>
+             Produces an index for ij coordinates anchored by an origin.
+            
+             The coordinate space used by this function may have deleted
+             regions or warping due to pentagonal distortion.
+            
+             Failure may occur if the index is too far away from the origin
+             or if the index is on the other side of a pentagon.
+            
+             This function is experimental, and its output is not guaranteed
+             to be compatible across different versions of H3.
+             </summary>
+             <param name="origin">an anchoring index for the IJ coordinate system</param>
+             <param name="coord">IJ coordinates to index</param>
+             <returns>H3Index for coordintes</returns>
+        </member>
+        <member name="T:H3.Extensions.H3LocalIJKExtensions">
+             <summary>
+             Extends the H3Index class with support for generating LocalIJK coordinates.
+            
+             This functionality is experimental, and its output is not guaranteed
+             to be compatible across different versions of H3.
+             </summary>
+        </member>
+        <member name="M:H3.Extensions.H3LocalIJKExtensions.ToLocalIJK(H3.H3Index,H3.H3Index)">
+             <summary>
+             Produces ijk coordinates for an index anchored by an origin.
+            
+             The coordinate space used by this function may have deleted
+             regions or warping due to pentagonal distortion.
+            
+             Coordinates are only comparable if they come from the same
+             origin index.
+            
+             Failure may occur if the index is too far away from the origin
+             or if the index is on the other side of a pentagon.
+            
+             This function is experimental, and its output is not guaranteed
+             to be compatible across different versions of H3.
+             </summary>
+             <param name="origin"></param>
+             <param name="index"></param>
+             <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3LocalIJKExtensions.FromLocalIJK(H3.H3Index,H3.Model.CoordIJK)">
+             <summary>
+             Produces an index for ijk coordinates anchored by an origin.
+            
+             The coordinate space used by this function may have deleted
+             regions or warping due to pentagonal distortion.
+            
+             Failure may occur if the index is too far away from the origin
+             or if the index is on the other side of a pentagon.
+            
+             This function is experimental, and its output is not guaranteed
+             to be compatible across different versions of H3.
+             </summary>
+             <param name="origin">an anchoring index for the IJK coordinate system</param>
+             <param name="coord">IJK coordinates to index</param>
+             <returns>H3Index for coordintes</returns>
+        </member>
+        <member name="M:H3.Extensions.LocalCoordIJK.ToLocalIJK(H3.H3Index,H3.H3Index)">
+             <summary>
+             Produces ijk+ coordinates for an index anchored by an origin.
+            
+             The coordinate space used by this function may have deleted
+             regions or warping due to pentagonal distortion.
+            
+             Coordinates are only comparable if they come from the same
+             origin index.
+            
+             Failure may occur if the index is too far away from the origin
+             or if the index is on the other side of a pentagon.
+             </summary>
+             <param name="origin">an anchoring index for the IJ coordinate system</param>
+             <param name="index">index to generate IJ coordinates for</param>
+             <returns>local IJ coordinates</returns>
+        </member>
+        <member name="M:H3.Extensions.LocalCoordIJK.ToH3Index(H3.H3Index,H3.Model.CoordIJK,H3.Model.CoordIJK,H3.Model.CoordIJK,H3.Model.CoordIJK)">
+             <summary>
+             Produces an index for ijk+ coordinates anchored by an origin.
+            
+             The coordinate space used by this function may have deleted
+             regions or warping due to pentagonal distortion.
+             </summary>
+             <param name="origin"></param>
+             <param name="ijk"></param>
+             <returns></returns>
+        </member>
+        <member name="T:H3.Extensions.H3SetExtensions">
+            <summary>
+            Provides extension methods that operate on sets of H3Index.
+            </summary>
+        </member>
+        <member name="M:H3.Extensions.H3SetExtensions.Compact(System.Collections.Generic.IEnumerable{H3.H3Index})">
+            <summary>
+            Takes a set of cells and compacts them by removing duplicates and
+            pruning full child branches to the parent level. This is also done for
+            all parents recursively to get the minimum number of indexes that perfectly
+            cover the defined space.</summary>
+            <remarks>This implementation differs from upstream in that mixed resolutions
+            are supported, and duplicate or invalid inputs are filtered instead returning
+            an error code when they are encountered.  Based on the "FlexiCompact" method
+            in H3Lib
+            (https://github.com/RichardVasquez/h3net/blob/v3.7.1/H3Lib/Extensions/H3LibExtensions.cs#L359)
+            </remarks>
+            <param name="indexEnumerable">set of cells to compact</param>
+            <returns>set of compacted cells</returns>
+        </member>
+        <member name="M:H3.Extensions.H3SetExtensions.UncompactToResolution(System.Collections.Generic.IEnumerable{H3.H3Index},System.Int32)">
+            <summary>
+            Takes a compacted set of cells and expands back to the original
+            set of cells at a specific resolution.
+            </summary>
+            <param name="indexes">set of cells</param>
+            <param name="resolution">resolution to expand to</param>
+            <returns>original set of cells. Throws ArgumentException if any
+            cell in the set is smaller than the output resolution or invalid
+            resolution is requested.</returns>
+        </member>
+        <member name="M:H3.Extensions.H3SetExtensions.UncompactToHighestResolution(System.Collections.Generic.IEnumerable{H3.H3Index})">
+            <summary>
+            Takes a set of indexes and expands to the highest found resolution
+            within the set.
+            </summary>
+            <param name="indexes"></param>
+            <returns>expanded set ofindexes</returns>
+        </member>
+        <member name="M:H3.Extensions.H3SetExtensions.AreOfSameResolution(System.Collections.Generic.IEnumerable{H3.H3Index})">
+            <summary>
+            Determines whether or not all H3Index entries within the enumerable are
+            of the same resolution.
+            </summary>
+            <param name="indexes">set of cells</param>
+            <returns>true if all cells are of the same resolution, false if
+            not.
+            </returns>
+        </member>
+        <member name="T:H3.Extensions.H3UniEdgeExtensions">
+            <summary>
+            Extends the H3Index class with support for Unidirectional Edge
+            functionality.
+            </summary>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetUnidirectionalEdge(H3.H3Index,H3.H3Index)">
+            <summary>
+            Returns a unidirectional edge H3 index based on the provided origin and
+            destination.
+            </summary>
+            <param name="origin">Origin H3 index</param>
+            <param name="destination">Destination H3 index</param>
+            <returns>The unidirectional edge H3Index, or Invalid on failure.
+            </returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetUnidirectionalEdges(H3.H3Index)">
+            <summary>
+            Provides all of the unidirectional edges from the provided H3 cell
+            index.
+            </summary>
+            <param name="origin">Origin H3 index</param>
+            <returns>All of the unidirectional edges for the H3 origin index.</returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetOriginFromUnidirectionalEdge(H3.H3Index)">
+            <summary>
+            Returns the origin cell from the unidirectional edge H3Index.
+            </summary>
+            <param name="edge">Unidirectional edge H3 index</param>
+            <returns>The origin cell index, or Invalid on failure</returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetDestinationFromUnidirectionalEdge(H3.H3Index)">
+            <summary>
+            Returns the destination cell from the unidirectional edge H3Index.
+            </summary>
+            <param name="edge">Unidirectional edge H3 index</param>
+            <returns>The destination cell index, or Invalid on failure</returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetIndexesFromUnidirectionalEdge(H3.H3Index)">
+            <summary>
+            Returns the origin, destination pair of cell indexes for the given edge.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetUnidirectionalEdgeBoundaryVertices(H3.H3Index)">
+            <summary>
+            Provides the coordinates defining the unidirectional edge.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.GetExactEdgeLengthInRadians(H3.H3Index)">
+            <summary>
+            Length of a unidirectional edge in radians.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3UniEdgeExtensions.IsUnidirectionalEdgeValid(H3.H3Index)">
+            <summary>
+            Determines if the provided H3Index is a valid unidirectional edge index.
+            </summary>
+            <param name="edge">H3 unidirectional edge index</param>
+            <returns>true if a valid unidirectional edge index, false otherwise</returns>
+        </member>
+        <member name="T:H3.Extensions.H3VertexExtensions">
+            <summary>
+            Extends the H3Index class with support for vertex functionality.
+            </summary>
+        </member>
+        <member name="F:H3.Extensions.H3VertexExtensions.HexDirectionToVertexNum">
+            <summary>
+            Hexagon direction to vertex number relationships (same face).
+            Note that we don't use direction 0 (center).
+            </summary>
+        </member>
+        <member name="F:H3.Extensions.H3VertexExtensions.PentagonDirectionToVertexNum">
+            <summary>
+            Pentagon direction to vertex number relationships (same face).
+            Note that we don't use directions 0 (center) or 1 (deleted K axis).
+            </summary>
+        </member>
+        <member name="F:H3.Extensions.H3VertexExtensions.HexVertexNumToDirection">
+            <summary>
+            Vertex number to hexagon direction relationships (same face).
+            </summary>
+        </member>
+        <member name="F:H3.Extensions.H3VertexExtensions.PentagonVertexNumToDirection">
+            <summary>
+            Vertex number to pentagon direction relationships (same face).
+            </summary>
+        </member>
+        <member name="F:H3.Extensions.H3VertexExtensions.HexDirections">
+            <summary>
+            Directions in CCW order.
+            </summary>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.VertexRotations(H3.H3Index)">
+            <summary>
+            Get the number of CCW rotations of the cell's vertex numbers
+            compared to the directional layout of its neighbors.
+            </summary>
+            <param name="index">H3 index</param>
+            <returns>Number of CCW rotations</returns>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.GetVertexNumberForDirection(H3.H3Index,H3.Model.Direction)">
+            <summary>
+            Get the first vertex number for a given direction. The neighbor in this
+            direction is located between this vertex number and the next number in
+            sequence.
+            </summary>
+            <param name="origin"></param>
+            <param name="direction"></param>
+            <returns>The number for the first topological vertex, or INVALID_VERTEX_NUM
+            if the direction is not valid for this cell</returns>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.GetDirectionForVertexNumber(H3.H3Index,System.Int32)">
+            <summary>
+            Get the direction for a given vertex number. This returns the direction for
+            the neighbor between the given vertex number and the next number in sequence.
+            </summary>
+            <param name="origin"></param>
+            <param name="vertexNum"></param>
+            <returns>The direction for this vertex, or INVALID_DIGIT if the vertex
+            number is invalid.</returns>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.GetVertexIndex(H3.H3Index,System.Int32)">
+            <summary>
+            Get a single vertex for a given cell as an H3 index, or
+            H3Index.Invalid if the vertex is invalid.
+            </summary>
+            <param name="cell"></param>
+            <param name="vertexNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.GetVertexIndicies(H3.H3Index)">
+            <summary>
+            Get all vertexes for the given cell.
+            </summary>
+            <param name="cell"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.VertexToGeoCoord(H3.H3Index)">
+            <summary>
+            Get the geocoordinates of a H3 vertex index.
+            </summary>
+            <param name="vertex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Extensions.H3VertexExtensions.IsValidVertex(H3.H3Index)">
+            <summary>
+            Whether the input is a valid H3 vertex index.
+            </summary>
+            <param name="vertex">H3 index possibly describing a vertex</param>
+            <returns>Whether the input is valid</returns>
+        </member>
+        <member name="F:H3.H3Index.H3_INIT">
+            <summary>
+            H3 index with mode 0, res 0, base cell 0, and 7 for all index digits.
+            Typically used to initialize the creation of an H3 cell index, which
+            expects all direction digits to be 7 beyond the cell's resolution.
+            </summary>
+        </member>
+        <member name="F:H3.H3Index.Invalid">
+            <summary>
+            H3 index with a value of 0; aka H3_NULL
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.HighBit">
+            <summary>
+            The highest bit value of the index.
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.Mode">
+            <summary>
+            The Mode of the index.
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.BaseCellNumber">
+            <summary>
+            The base cell number of the index.  Must be &gt;= 0 &lt; NUM_BASE_CELLS
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.Resolution">
+            <summary>
+            The resolution of the index.  Must be &gt;= 0 &lt;= MAX_H3_RES
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.Direction">
+            <summary>
+            The Direction "digit" for the index at its base resolution, e.g.
+            this is the result of <code>GetDirectionForResolution(Resolution)</code>
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.ReservedBits">
+            <summary>
+            The reserved bit value of the index.  Setting to non-zero may invalidate
+            the index.
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.IsValid">
+            <summary>
+            Whether or not the index is valid.
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.LeadingNonZeroDirection">
+            <summary>
+            The leading non-zero Direction "digit" of the index.
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.IsPentagon">
+            <summary>
+            Whether or not this index should be considered as a pentagon.
+            </summary>
+        </member>
+        <member name="P:H3.H3Index.MaximumFaceCount">
+            <summary>
+            The maximum number of possible icosahedron faces the index
+            may intersect.
+            </summary>
+        </member>
+        <member name="M:H3.H3Index.GetDirectionForResolution(System.Int32)">
+            <summary>
+            Gets the Direction "digit" for the index at the specified resolution.
+            </summary>
+            <param name="resolution"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.H3Index.SetDirectionForResolution(System.Int32,H3.Model.Direction)">
+            <summary>
+            Sets the Direction "digit" for the index at the specified resolution
+            to the specifiied value.
+            </summary>
+            <param name="resolution"></param>
+            <param name="direction"></param>
+        </member>
+        <member name="M:H3.H3Index.IncrementDirectionForResolution(System.Int32)">
+            <summary>
+            Increments the Direction "digit" for the index at the specified resolution.
+            </summary>
+            <param name="resolution"></param>
+        </member>
+        <member name="M:H3.H3Index.ZeroDirectionsForResolutionRange(System.Int32,System.Int32)">
+            <summary>
+            Zeros the Direction "digits" for the indexes starting at startResolution
+            and ending at endResolution.
+            </summary>
+            <param name="startResolution"></param>
+            <param name="endResolution"></param>
+        </member>
+        <member name="M:H3.H3Index.InvalidateDirectionsForResolutionRange(System.Int32,System.Int32)">
+            <summary>
+            Invalidates the Direction "digits" for the indexes starting at startResolution
+            and ending at endResolution
+            </summary>
+            <param name="startResolution"></param>
+            <param name="endResolution"></param>
+        </member>
+        <member name="M:H3.H3Index.RotateClockwise">
+            <summary>
+            Performs an in-place 60 degree clockwise rotation of the index.
+            </summary>
+        </member>
+        <member name="M:H3.H3Index.RotateCounterClockwise">
+            <summary>
+            Performs an in-place 60 degree clockwise rotation of the index.
+            </summary>
+        </member>
+        <member name="M:H3.H3Index.RotatePentagonCounterClockwise">
+            <summary>
+            Performs an in-place 60 degree counter-clockwise pentagonal rotation of the index.
+            </summary>
+        </member>
+        <member name="M:H3.H3Index.RotatePentagonClockwise">
+            <summary>
+            Performs an in-place 60 degree clockwise pentagonal rotation of the index.
+            </summary>
+        </member>
+        <member name="M:H3.H3Index.ToFaceWithInitializedFijk(H3.Model.FaceIJK)">
+            <summary>
+            Convert an H3Index to the FaceIJK address on a specified icosahedral face.  Note that
+            <paramref name="faceIjk"/> will be mutated by this function.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.H3Index.ToFaceIJK(H3.Model.FaceIJK)">
+            <summary>
+            Convert an H3Index to a FaceIJK address.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.H3Index.ToGeoCoord">
+            <summary>
+            Determines the spherical coordinates of the center point of a H3
+            index.
+            </summary>
+            <returns>Center point GeoCoord</returns>
+        </member>
+        <member name="M:H3.H3Index.ToPoint(NetTopologySuite.Geometries.GeometryFactory)">
+            <summary>
+            Determines the spherical coordinates of the center point of a H3
+            index, and returns it as a NTS <see cref="T:NetTopologySuite.Geometries.Point"/>.
+            </summary>
+            <param name="geometryFactory">GeometryFactory to be used to create
+            point; defaults to DefaultGeometryFactory.  Note that coordinates
+            are provided in degrees and SRS is assumed to be EPSG:4326.</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.H3Index.FromFaceIJK(H3.Model.FaceIJK,System.Int32)">
+            <summary>
+            Convert an FaceIJK address to the corresponding H3Index.
+            </summary>
+            <param name="face">The FaceIJK address</param>
+            <param name="resolution">The cell resolution</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.H3Index.FromGeoCoord(H3.Model.GeoCoord,System.Int32)">
+            <summary>
+            Encodes a coordinate on the sphere to the H3 index of the containing cell at
+            the specified resolution.
+            </summary>
+            <param name="geoCoord">The spherical coordinates to encode</param>
+            <param name="resolution">The desired H3 resolution for the encoding</param>
+            <returns>Returns H3Index.Invalid (H3_NULL) on invalid input</returns>
+        </member>
+        <member name="M:H3.H3Index.RotateClockwise(System.Int32)">
+            <summary>
+            Perform in-place 60 degree clockwise rotation(s) of the index.
+            </summary>
+            <param name="rotations">number of rotations to perform</param>
+        </member>
+        <member name="M:H3.H3Index.RotateCounterClockwise(System.Int32)">
+            <summary>
+            Perform in-place 60 degree clockwise rotation(s) of the index.
+            </summary>
+            <param name="rotations">number of rotations to perform</param>
+        </member>
+        <member name="T:H3.H3IndexJsonConverter">
+            <summary>
+            Handles (de)serialization of H3Index values to/from JSON using
+            System.Text.Json.
+            </summary>
+        </member>
+        <member name="M:H3.H3IndexJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:H3.H3IndexJsonConverter.Write(System.Text.Json.Utf8JsonWriter,H3.H3Index,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="P:H3.Model.BaseCell.Cell">
+            <summary>
+            The cell number, from 0 - 121.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.Home">
+            <summary>
+            The home face and IJK address of the cell.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.IsPentagon">
+            <summary>
+            Whether or not this base cell is a pentagon.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.ClockwiseOffsetPent">
+            <summary>
+            If a pentagon, the cell's two clockwise offset faces.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.IsPolarPentagon">
+            <summary>
+            Whether or not the cell is a polar pentagon.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.NeighbouringCells">
+            <summary>
+            All of the neighbouring <see cref="T:H3.Model.BaseCell"/>s of this cell, by
+            <see cref="T:H3.Model.Direction"/>.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.NeighbourRotations">
+            <summary>
+            Indicates the number of counter-clockwise rotations that should
+            take place to rotate to a given neighbour, by <see cref="T:H3.Model.Direction"/>.
+            </summary>
+        </member>
+        <member name="P:H3.Model.BaseCell.NeighbourDirections">
+            <summary>
+            A map of neighbour cell number to <see cref="T:H3.Model.Direction"/>.
+            </summary>
+        </member>
+        <member name="M:H3.Model.BaseCell.FaceMatchesOffset(System.Int32)">
+            <summary>
+            Whether or not the specified <paramref name="face"/> matches one of this
+            base cell's offset values.
+            </summary>
+            <param name="face"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.BaseCell.Neighbour(H3.Model.Direction)">
+            <summary>
+            Gets the <see cref="T:H3.Model.BaseCell"/> that is in the specified
+            <paramref name="direction"/> from the current base cell.
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.BaseCell.GetNeighbourDirection(System.SByte,System.SByte)">
+            <summary>
+            Gets the <see cref="T:H3.Model.Direction"/> that is required to move in
+            order to go from <paramref name="originCell"/> to
+            <paramref name="destinationCell"/>.
+            </summary>
+            <param name="originCell"></param>
+            <param name="destinationCell"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.BaseCell.op_Equality(H3.Model.BaseCell,H3.Model.BaseCell)">
+            <summary>
+            Whether or not two <see cref="T:H3.Model.BaseCell"/> instances are equal.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.BaseCell.op_Inequality(H3.Model.BaseCell,H3.Model.BaseCell)">
+            <summary>
+            Whether or not two <see cref="T:H3.Model.BaseCell"/> instances are not equal.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.Normalize">
+            <summary>
+            Normalizes ijk coordinates by setting the components to the smallest possible
+            values.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.RotateCounterClockwise">
+            <summary>
+            Rotates ijk coordinates 60 degrees counter-clockwise.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.RotateClockwise">
+            <summary>
+            Rotates ijk coordinates 60 degrees clockwise.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.UpAperture7CounterClockwise">
+            <summary>
+            Find the normalized ijk coordinates of the indexing parent of a cell in a
+            counter-clockwise aperture 7 grid.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.UpAperture7Clockwise">
+            <summary>
+            Find the normalized ijk coordinates of the indexing parent of a cell in a
+            clockwise aperture 7 grid.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.DownAperture7CounterClockwise">
+            <summary>
+            Find the normalized ijk coordinates of the hex centered on the indicated
+            hex at the next finer aperture 7 counter-clockwise resolution.  Works in
+            place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.DownAperture7Clockwise">
+            <summary>
+            Find the normalized ijk coordinates of the hex centered on the indicated
+            hex at the next finer aperture 7 clockwise resolution.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.DownAperture3CounterClockwise">
+            <summary>
+            Find the normalized ijk coordinates of the hex centered on the indicated
+            hex at the next finer aperture 3 counter-clockwise resolution.  Works in
+            place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.DownAperture3Clockwise">
+            <summary>
+            Find the normalized ijk coordinates of the hex centered on the indicated
+            hex at the next finer aperture 3 clockwise resolution.  Works in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.Cube">
+            <summary>
+            Convert IJK coordinates to cube coordinates, in place.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.Uncube">
+            <summary>
+            Convert cube coordinates to IJK coordinates, in place
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.ToNeighbour(H3.Model.Direction)">
+            <summary>
+            Find the normalized ijk coordinates of the hex in the specified digit
+            direction from the specified ijk coordinates.  Works in place.
+            </summary>
+            <param name="direction">The digit direction from the original ijk coordinates.</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.GetDistanceTo(H3.Model.CoordIJK)">
+            <summary>
+            Finds the grid distance between the two coordinates.
+            </summary>
+            <param name="h2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.CubeRound(System.Double,System.Double,System.Double,H3.Model.CoordIJK)">
+            <summary>
+            Given cube coords as doubles, round to valid integer coordinates. Algorithm
+            from https://www.redblobgames.com/grids/hexagons/#rounding
+            </summary>
+            <param name="i"></param>
+            <param name="j"></param>
+            <param name="k"></param>
+            <param name="toUpdate">optional instance to update, returns a new
+            <see cref="T:H3.Model.CoordIJK"/> instance if not provided.</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.op_Implicit(System.ValueTuple{System.Int32,System.Int32,System.Int32})~H3.Model.CoordIJK">
+            <summary>
+            Creates a new CoordIJK from a tuple containing 3 integers (I, J, K).
+            </summary>
+            <param name="coordinates"></param>
+        </member>
+        <member name="M:H3.Model.CoordIJK.op_Implicit(H3.Model.CoordIJK)~H3.Model.Direction">
+            <summary>
+            Determines the H3 digit corresponding to a unit vector in ijk coordinates.
+            </summary>
+            <param name="h"></param>
+        </member>
+        <member name="M:H3.Model.CoordIJK.op_Addition(H3.Model.CoordIJK,H3.Model.CoordIJK)">
+            <summary>
+            Returns a new ijk coordinate containing the sum of two ijk
+            coordinates.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.op_Subtraction(H3.Model.CoordIJK,H3.Model.CoordIJK)">
+            <summary>
+            Returns a new ijk coordinate containing the difference of
+            two ijk coordinates.
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.CoordIJK.op_Multiply(H3.Model.CoordIJK,System.Int32)">
+            <summary>
+            Returns a new ijk coordinate that has been scaled by the
+            specified factor.
+            </summary>
+            <param name="a"></param>
+            <param name="factor"></param>
+            <returns></returns>
+        </member>
+        <member name="F:H3.Model.DirectionExtensions.Clockwise">
+            <summary>
+            Clockwise rotation steps, by <see cref="T:H3.Model.Direction"/> and number of rotations from 0-5.
+            </summary>
+        </member>
+        <member name="F:H3.Model.DirectionExtensions.CounterClockwise">
+            <summary>
+            Counter-clockwise rotation steps, by <see cref="T:H3.Model.Direction"/> and number of rotations from 0-5.
+            </summary>
+        </member>
+        <member name="M:H3.Model.DirectionExtensions.RotateClockwise(H3.Model.Direction)">
+            <summary>
+            Returns the Direction that is 60 degrees clockwise to the current
+            direction.
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.DirectionExtensions.RotateClockwise(H3.Model.Direction,System.Int32)">
+            <summary>
+            Returns the Direction that is 60 degrees clockwise to the current
+            direction.
+            </summary>
+            <param name="direction"></param>
+            <param name="rotations">number of rotations to perform</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.DirectionExtensions.RotateCounterClockwise(H3.Model.Direction)">
+            <summary>
+            Returns the Direction that is 60 degrees counter-clockwise to the current
+            direction.
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.DirectionExtensions.RotateCounterClockwise(H3.Model.Direction,System.Int32)">
+            <summary>
+            Returns the Direction that is 60 degrees counter-clockwise to the current
+            direction.
+            </summary>
+            <param name="direction"></param>
+            <param name="rotations">number of rotations to perform</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.FaceIJK.GetHexVertices(System.Int32@)">
+            <summary>
+            Get the vertices of a cell as substrate FaceIJK addresses.  Note that this modifies
+            the address in place!
+            </summary>
+            <param name="resolution">The H3 resolution of the cell. This may be adjusted if
+            necessary for the substrate grid resolution.</param>
+            <returns>cell vertices</returns>
+        </member>
+        <member name="M:H3.Model.FaceIJK.GetPentagonVertices(System.Int32@)">
+            <summary>
+            Get the vertices of a pentagon cell as substrate FaceIJK addresses.  Note that this
+            modifies the address in place!
+            </summary>
+            <param name="resolution">The H3 resolution of the cell. This may be adjusted if
+            necessary for the substrate grid resolution.</param>
+            <returns>cell vertices</returns>
+        </member>
+        <member name="M:H3.Model.FaceIJK.AdjustOverageClass2(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Adjusts a FaceIJK address in place so that the resulting cell address is
+            relative to the correct icosahedral face.
+            </summary>
+            <param name="resolution">H3 resolution of the cell</param>
+            <param name="pentagonLeading4">Whether or not the cell is a pentagon with
+            leading digit of 4 (Direction.I)</param>
+            <param name="isSubstrate">Whether or not the cell is on a substrate grid</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.FaceIJK.AdjustPentagonVertexOverage(System.Int32)">
+            <summary>
+            Adjusts a FaceIJK address for a pentagon vertex in a substrate grid in
+            place so that the resulting cell address is relative to the correct
+            icosahedral face.
+            </summary>
+            <param name="resolution">H3 resolution of the cell</param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.FaceIJK.GetPentagonBoundary(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates the cell boundary in spherical coordinates for a pentagonal cell
+            given by a FaceIJK address at a specified resolution.
+            </summary>
+            <param name="resolution">The H3 resolution of the cell</param>
+            <param name="start">The first topological vertex to return</param>
+            <param name="length">The number of topological vertexes to return</param>
+            <returns>The spherical coordinates of the cell boundary</returns>
+        </member>
+        <member name="M:H3.Model.FaceIJK.GetHexagonBoundary(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates the cell boundary in spherical coordinates for a cell given by a
+            FaceIJK address at a specified resolution.
+            </summary>
+            <param name="resolution">The H3 resolution of the cell</param>
+            <param name="start">The first topological vertex to return</param>
+            <param name="length">The number of topological vertexes to return</param>
+            <returns>The spherical coordinates of the cell boundary</returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.FromPoint(NetTopologySuite.Geometries.Point)">
+            <summary>
+            Creates a GeoCoord from a NTS Point.
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.FromCoordinate(NetTopologySuite.Geometries.Coordinate)">
+            <summary>
+            Creates a GeoCoord from a NTS Coordinate.
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.ForAzimuthDistanceInRadians(H3.Model.GeoCoord,System.Double,System.Double)">
+            <summary>
+            Computes the point on the sphere a specified azimuth and distance from
+            another point.
+            </summary>
+            <param name="p1">The first spherical coordinate</param>
+            <param name="azimuth">The desired azimuth from p1</param>
+            <param name="distance">The desired distance from p1, must be non-negative.</param>
+            <returns>
+            The spherical coordinates at the desired azimuth and distance from p1
+            </returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.GetTriangleArea(H3.Model.GeoCoord,H3.Model.GeoCoord,H3.Model.GeoCoord)">
+            <summary>
+            Compute area in radians^2 of a spherical triangle, given its vertices.
+            </summary>
+            <param name="a">First triangle vertex</param>
+            <param name="b">Second triangle vertex</param>
+            <param name="c">Third triangle vertex</param>
+            <returns>Area of triangle on unit sphere, in radians^2</returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.ToPoint(NetTopologySuite.Geometries.GeometryFactory)">
+            <summary>
+            Return the NTS Point representation of this coordinate.
+            </summary>
+            <param name="geometryFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.ToCoordinate">
+            <summary>
+            Return the NTS Coordinate representation of this coordinate.
+            </summary>
+            <param name="geometryFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.GetAzimuthInRadians(H3.Model.GeoCoord)">
+            <summary>
+            Determines the azimuth to p2 from p1 in radians.
+            </summary>
+            <param name="p2">Destination spherical coordinate</param>
+            <returns>The azimuth in radians from this to p2</returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.GetPointDistanceInRadians(H3.Model.GeoCoord)">
+             <summary>
+             The great circle distance in radians between two spherical coordinates.
+            
+             This function uses the Haversine formula.
+             For math details, see:
+              * https://en.wikipedia.org/wiki/Haversine_formula
+              * https://www.movable-type.co.uk/scripts/latlong.html
+             </summary>
+             <param name="p2">Destination coordinate</param>
+             <returns>The great circle distance in radians between this coordinate
+             and the destination coordinate.</returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.GetPointDistanceInKm(H3.Model.GeoCoord)">
+            <summary>
+            The great circle distance in kilometers between two spherical coordinates.
+            </summary>
+            <param name="p2">Destination coordinate</param>
+            <returns>The great circle distance in kilometers between this coordinate
+            and the destination coordinate.</returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.GetPointDistanceInMeters(H3.Model.GeoCoord)">
+            <summary>
+            The great circle distance in meters between two spherical coordinates.
+            </summary>
+            <param name="p2">Destination coordinate</param>
+            <returns>The great circle distance in meters between this coordinate
+            and the destination coordinate.</returns>
+        </member>
+        <member name="M:H3.Model.GeoCoord.LineHexEstimate(H3.Model.GeoCoord,System.Int32)">
+            <summary>
+            Returns an estimated number of cells that trace the cartesian-projected
+            line
+            </summary>
+            <param name="other">Destination coordinates</param>
+            <param name="resolution">H3 resolution used to trace the line</param>
+            <returns>Estimated number of cells required to trace the line</returns>
+        </member>
+        <member name="F:H3.Model.LookupTables.FaceIjkBaseCells">
+             <summary>
+             Resolution 0 base cell lookup table for each face.
+            
+             Given the face number and a resolution 0 ijk+ coordinate in that face's
+             face-centered ijk coordinate system, gives the base cell located at that
+             coordinate and the number of 60 ccw rotations to rotate into that base
+             cell's orientation.
+            
+             Valid lookup coordinates are from(0, 0, 0) to(2, 2, 2).
+             </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.Class2HexVertices">
+            <summary>
+            The vertexes of an origin-centered cell in a Class II resolution on a
+            substrate grid with aperture sequence 33r. The aperture 3 gets us the
+            vertices, and the 3r gets us back to Class II.  vertices listed ccw
+            from the i-axes
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.Class3HexVertices">
+            <summary>
+            the vertexes of an origin-centered cell in a Class III resolution on a
+            substrate grid with aperture sequence 33r7r. The aperture 3 gets us the
+            vertices, and the 3r7r gets us to Class II.  vertices listed ccw from
+            the i-axes
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.Class2PentagonVertices">
+            <summary>
+            the vertexes of an origin-centered pentagon in a Class II resolution on a
+            substrate grid with aperture sequence 33r. The aperture 3 gets us the
+            vertices, and the 3r gets us back to Class II.  vertices listed ccw from
+            the i-axes
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.Class3PentagonVertices">
+            <summary>
+            the vertexes of an origin-centered pentagon in a Class III resolution on
+            a substrate grid with aperture sequence 33r7r. The aperture 3 gets us the
+            vertices, and the 3r7r gets us to Class II. vertices listed ccw from the
+            i-axes
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.PentagonDirectionFaces">
+            <summary>
+            Table of direction-to-face mapping for each pentagon.   Note that
+            faces are in directional order, starting at J_AXES_DIGIT.
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.CounterClockwiseDirections">
+             <summary>
+             Directions used for traversing a hexagonal ring counterclockwise around
+             {1, 0, 0}.
+            
+             <pre>
+                   _
+                 _/ \\_
+                / \\5/ \\
+                \\0/ \\4/
+                / \\_/ \\
+                \\1/ \\3/
+                  \\2/
+             </pre>
+             </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.NextRingDirection">
+            <summary>
+            Direction used for traversing to the next outward hexagonal ring.
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.NewDirectionClass2">
+             <summary>
+             New digit when traversing along class II grids.
+            
+             Current digit -> direction -> new digit.
+             </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.NewAdjustmentClass2">
+             <summary>
+             New traversal direction when traversing along class II grids.
+            
+             Current digit -> direction -> new ap7 move (at coarser level).
+             </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.NewDirectionClass3">
+             <summary>
+             New traversal direction when traversing along class III grids.
+            
+             Current digit -> direction -> new digit.
+             </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.NewAdjustmentClass3">
+             <summary>
+             New traversal direction when traversing along class III grids.
+            
+             Current digit -> direction -> new ap7 move (at coarser level).
+             </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.PentagonRotations">
+            <summary>
+            Origin leading digit -> index leading digit -> rotations 60 cw
+            Either being 1 (K axis) is invalid.
+            No good default at 0.
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.PentagonRotationsInReverse">
+            <summary>
+            Reverse base cell direction -> leading index digit -> rotations 60 ccw.
+            For reversing the rotation introduced in PnetagonRotations when
+            the origin is on a pentagon (regardless of the base cell of the index.)
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.NonPolarPentagonRotationsInReverse">
+            <summary>
+            Reverse base cell direction -> leading index digit -> rotations 60 ccw.
+            For reversing the rotation introduced in PentagonRotations when the index is
+            on a pentagon and the origin is not.
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.PolarPentagonRotationsInReverse">
+            <summary>
+            Reverse base cell direction -> leading index digit -> rotations 60 ccw.
+            For reversing the rotation introduced in PentagonRotations when the index is
+            on a polar pentagon and the origin is not.
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.UnfoldableDirections">
+             <summary>
+             Prohibited directions when unfolding a pentagon.
+             </summary>
+             <remarks>
+             Indexes by two directions, both relative to the pentagon base cell. The first
+             is the direction of the origin index and the second is the direction of the
+             index to unfold. Direction refers to the direction from base cell to base
+             cell if the indexes are on different base cells, or the leading digit if
+             within the pentagon base cell.
+            
+             This previously included a Class II/Class III check but these were removed
+             due to failure cases. It's possible this could be restricted to a narrower
+             set of a failure cases. Currently, the logic is any unfolding across more
+             than one icosahedron face is not permitted.
+             </remarks>
+        </member>
+        <member name="F:H3.Model.LookupTables.PentagonIndexesPerResolution">
+            <summary>
+            A list of all hex indexes that are pentagons at each resolution.
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.HexgonAreasInKm2">
+            <summary>
+            The area of hexagon cells at each resolution in km^2
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.HexagonAreasInM2">
+            <summary>
+            The area of hexagon cells at each resolution in m^2
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.EdgeLengthsInKm">
+            <summary>
+            TODO figure out what these are actually used for and doc accordingly
+            </summary>
+        </member>
+        <member name="F:H3.Model.LookupTables.EdgeLengthsInM">
+            <summary>
+            TODO figure out what these are actually used for and doc accordingly
+            </summary>
+        </member>
+        <member name="P:H3.Model.Vec2d.Magitude">
+            <summary>
+            Returns the magnitude of the vector... ohhh yessss!  Un-pre-dictable!
+            </summary>
+        </member>
+        <member name="T:H3.Model.BaseCells">
+            <summary>
+            All of the 122 base cells that comprise the H3 indexing scheme.
+            </summary>
+        </member>
+        <member name="M:H3.Utils.GetTopBits(System.UInt64,System.Int32)">
+            <summary>
+            Gets the specified number of top bits from the provided value.
+            </summary>
+            <param name="value"></param>
+            <param name="numBits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Utils.AzimuthInRadians(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Determines the azimuth to p2 from p1 in radians.
+            </summary>
+            <param name="p1Lon">p1 longitude, in radians</param>
+            <param name="p1Lat">p1 latitude, in radians</param>
+            <param name="p2Lon">p2 longitude, in radians</param>
+            <param name="p2Lat">p2 latitude, in radians</param>
+            <returns>azimuth, ...in radians!</returns>
+        </member>
+        <member name="M:H3.Utils.PointDistanceInRadians(System.Double,System.Double,System.Double,System.Double)">
+             <summary>
+             The great circle distance in radians between two spherical coordinates.
+            
+             This function uses the Haversine formula.
+             For math details, see:
+              * https://en.wikipedia.org/wiki/Haversine_formula
+              * https://www.movable-type.co.uk/scripts/latlong.html
+             </summary>
+             <param name="p2">Destination coordinate</param>
+             <returns>The great circle distance in radians between this coordinate
+             and the destination coordinate.</returns>
+        </member>
+        <member name="M:H3.Utils.IsResolutionClass3(System.Int32)">
+            <summary>
+            Indicates whether or not the provided resolution has a Class 3 orientation.
+            </summary>
+            <param name="resolution"></param>
+            <returns></returns>
+        </member>
+        <member name="M:H3.Utils.IsValidChildResolution(System.Int32,System.Int32)">
+            <summary>
+            Indicates whether or not the specified child resolution is valid relative to the
+            provided parent resolution.
+            </summary>
+            <param name="parentResolution"></param>
+            <param name="childResolution"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata.
+            This class should not be used by developers in source code.
+            </summary>
+        </member>
+    </members>
+</doc>

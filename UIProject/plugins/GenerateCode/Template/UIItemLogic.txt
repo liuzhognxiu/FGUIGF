@@ -1,0 +1,36 @@
+using FairyGUI;
+
+namespace MetaArea.Hotfix
+{
+    public class FGUI{ClassName}ItemLogic : LogicBase
+    {
+        private {ClassName}Item MainItem;
+
+        public FGUI{ClassName}ItemLogic(GComponent mainItem)
+        {
+            MainItem = mainItem as {ClassName}Item;
+            RefreshUI();
+            SubscribeEvents();
+        }
+
+        protected override void RefreshUI()
+        {
+            
+        }
+
+        protected override void RefreshData(object Data = null)
+        {
+            
+        }
+
+        protected override void SubscribeEvents()
+        {
+            
+        }
+
+        protected override void UnSubscribeEvents()
+        {
+            
+        }
+    }
+}

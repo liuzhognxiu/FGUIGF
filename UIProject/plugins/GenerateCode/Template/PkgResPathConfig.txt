@@ -1,0 +1,15 @@
+//此脚本自动生成不要修改和移位
+
+using System.Collections.Generic;
+
+namespace GameUI
+{
+    public static class PkgResPathConfig
+    {
+        public static Dictionary<string, string> dic = new Dictionary<string, string>()
+        {
+			#region auto generate not change
+			#endregion
+        };
+    }
+}

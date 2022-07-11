@@ -1,0 +1,43 @@
+﻿#	实体表			
+#	Id		AssetName	ShowName
+#	int		string	string
+#	实体编号	策划备注	资源名称	显示名称
+	10000	床	BuildItem/Bed	床
+	10001	大船	BuildItem/BigBoat	大船
+	10002	椅子	BuildItem/Chair	椅子
+	10003	餐椅	BuildItem/Chair2	餐椅
+	10004	电脑桌	BuildItem/ComputerDesk	电脑桌
+	10005	沙发	BuildItem/Couch	沙发
+	10006	风扇	BuildItem/Fan	风扇
+	10007	冰箱	BuildItem/Fridge	冰箱
+	10008	间房	BuildItem/JianFang	间房
+	10009	魔盒	BuildItem/MagicBox	魔盒
+	10010	彩魔盒	BuildItem/MoHe_Chai	彩魔盒
+	10011	快艇	BuildItem/Speedboat	快艇
+	10012	剑	BuildItem/Sword	剑
+	10013	桌子	BuildItem/Table	桌子
+	10014	茶几	BuildItem/Teapoy	茶几
+	10015	点水	BuildItem/Television	点水
+	10016	木船	BuildItem/Wooden	木船
+	10017	星源	BuildItem/XingYuan	星源
+	10018	男角色	Player/Male Mage 01	男角色
+	10019	女角色	Player/Female Villager 01	女角色
+	10020	控制器	Player/ThirdPersonController	控制器
+	10021	床	BuildItemGhost/Bed_ghost	床
+	10022	大船	BuildItemGhost/BigBoat_ghost	大船
+	10023	椅子	BuildItemGhost/Chair_ghost	椅子
+	10024	餐椅	BuildItemGhost/Chair2_ghost	餐椅
+	10025	电脑桌	BuildItemGhost/ComputerDesk_ghost	电脑桌
+	10026	沙发	BuildItemGhost/Couch_ghost	沙发
+	10027	风扇	BuildItemGhost/Fan_ghost	风扇
+	10028	冰箱	BuildItemGhost/Fridge_ghost	冰箱
+	10029	间房	BuildItemGhost/JianFang_ghost	间房
+	10030	魔盒	BuildItemGhost/MagicBox_ghost	魔盒
+	10031	彩魔盒	BuildItemGhost/MoHe_Chai_ghost	彩魔盒
+	10032	快艇	BuildItemGhost/Speedboat_ghost	快艇
+	10033	剑	BuildItemGhost/Sword_ghost	剑
+	10034	桌子	BuildItemGhost/Table_ghost	桌子
+	10035	茶几	BuildItemGhost/Teapoy_ghost	茶几
+	10036	点水	BuildItemGhost/Television_ghost	点水
+	10037	木船	BuildItemGhost/Wooden_ghost	木船
+	10038	星源	BuildItemGhost/XingYuan_ghost	星源

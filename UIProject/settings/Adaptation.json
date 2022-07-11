@@ -1,0 +1,34 @@
+{
+  "scaleMode": "ScaleWithScreenSize",
+  "screenMathMode": "MatchWidthOrHeight",
+  "designResolutionX": 1280,
+  "designResolutionY": 720,
+  "devices": [
+    {
+      "name": "1080p",
+      "resolutionX": 1920,
+      "resolutionY": 1080
+    },
+    {
+      "name": "2k",
+      "resolutionX": 2436,
+      "resolutionY": 1125
+    },
+    {
+      "name": "4k",
+      "resolutionX": 1644,
+      "resolutionY": 3840
+    },
+    {
+      "name": "tishen",
+      "resolutionX": 2400,
+      "resolutionY": 1080
+    },
+    {
+      "name": "mate pad ",
+      "resolutionX": 2560,
+      "resolutionY": 1600
+    }
+  ],
+  "fileName": "Adaptation"
+}

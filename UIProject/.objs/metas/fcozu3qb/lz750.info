@@ -1,0 +1,27 @@
+{
+  "objectStatus": {
+    "n19_q04g": {
+      "collapsed": true
+    },
+    "n34_q04g": {
+      "collapsed": true
+    },
+    "n28_q04g": {
+      "collapsed": true
+    },
+    "n49_rvix": {
+      "collapsed": true
+    },
+    "n22_q04g": {
+      "collapsed": true
+    },
+    "n31_q04g": {
+      "collapsed": true
+    },
+    "n25_q04g": {
+      "collapsed": true
+    }
+  },
+  "adaptiveTest": true,
+  "fitScreen": "FitSize"
+}

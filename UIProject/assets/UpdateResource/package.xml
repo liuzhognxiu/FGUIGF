@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="yxm5rfcq">
+  <resources>
+    <component id="gs1z0" name="UpdateResource.xml" path="/" exported="true"/>
+    <image id="gs1z2" name="background_00_title_1920.png" path="/Img/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

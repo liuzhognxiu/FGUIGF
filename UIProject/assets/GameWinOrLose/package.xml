@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="oc3kwkh3">
+  <resources>
+    <component id="elli0" name="GameWinOrLose.xml" path="/Win/" exported="true"/>
+    <component id="elli1" name="BtnContinue.xml" path="/Win/"/>
+    <image id="pis72" name="background_gradient_00.png" path="/Img/" scale="9grid" scale9grid="2,135,4,270"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

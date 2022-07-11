@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <controller name="bagType" pages="0,,1,,2,,3," selected="0"/>
+  <displayList>
+    <image id="n7_tjy8" name="n7" src="tjy80" fileName="Img/background_gradient_00.png" xy="0,0" pivot="0.5,0.5" size="720,1280">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n19_tjy8" name="n19" src="tjy84" fileName="Img/label_ribbon_01.png" xy="127,8" pivot="0.5,0.5" size="481,85"/>
+    <text id="n8_tjy8" name="n8" xy="275,5" pivot="0.5,0.5" size="200,59" font="Arial" fontSize="44" color="#ffffff" text="EquipItem"/>
+    <graph id="n11_tjy8" name="n11" xy="24,188" pivot="0.5,0.5" size="680,8" type="rect" lineColor="#00000000" fillColor="#ff76617d"/>
+    <component id="n12_tjy8" name="n12" src="tjy88" fileName="Com/BtnTap.xml" xy="102,117" pivot="0.5,0.5" size="83,81" group="n15_tjy8" scale="1.5,1.5">
+      <Button checked="true" icon="ui://5k4mce2ltjy8nl" selectedIcon="ui://5k4mce2ltjy8nk" controller="bagType" page="0"/>
+    </component>
+    <component id="n13_tjy8" name="n13" src="tjy88" fileName="Com/BtnTap.xml" xy="269,118" pivot="0.5,0.5" size="83,81" group="n15_tjy8" scale="1.5,1.5">
+      <Button icon="ui://5k4mce2ltjy8nn" selectedIcon="ui://5k4mce2ltjy8nm" controller="bagType" page="1"/>
+    </component>
+    <component id="n14_tjy8" name="n14" src="tjy88" fileName="Com/BtnTap.xml" xy="436,118" pivot="0.5,0.5" size="83,81" group="n15_tjy8" scale="1.5,1.5">
+      <Button icon="ui://5k4mce2ltjy8np" selectedIcon="ui://5k4mce2ltjy8no" controller="bagType" page="2"/>
+    </component>
+    <component id="n16_tjy8" name="n16" src="tjy88" fileName="Com/BtnTap.xml" xy="603,117" pivot="0.5,0.5" size="83,81" group="n15_tjy8" scale="1.5,1.5">
+      <Button icon="ui://5k4mce2ltjy8nr" selectedIcon="ui://5k4mce2ltjy8nq" controller="bagType" page="3"/>
+    </component>
+    <group id="n15_tjy8" name="n15" xy="102,117" size="584,82" advanced="true" layout="hz" colGap="84" excludeInvisibles="true"/>
+    <list id="n18_tjy8" name="listItem" xy="26,216" size="678,627" layout="flow_hz" overflow="scroll" margin="11,0,20,0" lineGap="9" colGap="19" lineItemCount="4" defaultItem="ui://5kyofot5tjy8a" autoClearItems="true" foldInvisibleItems="true">
+      <relation target="" sidePair="height-height"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <image id="n21_tjy8" name="n21" src="tjy8o8" fileName="Component/Demo_Icon/set_icon_stat_0.png" pkg="5k4mce2l" xy="54,874" pivot="0.5,0.5" group="n29_tjy8" color="#45d0b2"/>
+    <image id="n22_tjy8" name="n22" src="tjy8o9" fileName="Component/Demo_Icon/set_icon_stat_1.png" pkg="5k4mce2l" xy="54,936" pivot="0.5,0.5" group="n29_tjy8" color="#d14b39"/>
+    <image id="n23_tjy8" name="n23" src="tjy8ob" fileName="Component/Demo_Icon/set_icon_stat_3.png" pkg="5k4mce2l" xy="54,1018" pivot="0.5,0.5" group="n29_tjy8" color="#68b9db"/>
+    <image id="n30_tjy8" name="n30" src="tjy8oi" fileName="Component/Button/status_frame.png" pkg="5k4mce2l" xy="426,854" pivot="0.5,0.5" size="228,68" group="n29_tjy8" alpha="0.702" color="#000000"/>
+    <image id="n31_tjy8" name="n31" src="tjy8oi" fileName="Component/Button/status_frame.png" pkg="5k4mce2l" xy="428,934" pivot="0.5,0.5" size="228,68" group="n29_tjy8" alpha="0.702" color="#000000"/>
+    <image id="n24_tjy8" name="n24" src="tjy8ki" fileName="Component/UI_Etc/status_icon_gem.png" pkg="5k4mce2l" xy="433,854" pivot="0.5,0.5" group="n29_tjy8"/>
+    <image id="n25_tjy8" name="n25" src="tjy8kj" fileName="Component/UI_Etc/status_icon_gold.png" pkg="5k4mce2l" xy="433,936" pivot="0.5,0.5" group="n29_tjy8"/>
+    <text id="n26_tjy8" name="n26" xy="108,864" pivot="0.5,0.5" size="46,42" group="n29_tjy8" font="Arial" fontSize="30" color="#45d0b2" text="HP"/>
+    <text id="n27_tjy8" name="n27" xy="108,937" pivot="0,0.5" size="84,42" group="n29_tjy8" fontSize="30" color="#d14b39" text="attack"/>
+    <text id="n28_tjy8" name="n28" xy="108,1012" pivot="0,0.5" size="117,42" group="n29_tjy8" fontSize="30" color="#68b9db" text="Defense"/>
+    <text id="n32_tjy8" name="txtZuan" xy="506,867" pivot="0,0.5" size="89,42" group="n29_tjy8" fontSize="30" color="#ffffff" text="99999"/>
+    <component id="n34_pf9z" name="sldHP" src="pf9zb" fileName="Com/ProgressBar1.xml" xy="218,873" pivot="0.5,0.5" size="186,18" group="n29_tjy8">
+      <ProgressBar value="50" max="100"/>
+    </component>
+    <text id="n35_pf9z" name="txtAttack" xy="281,937" pivot="0,0.5" size="38,42" group="n29_tjy8" fontSize="30" color="#d14b39" text="10"/>
+    <text id="n36_pf9z" name="txtDefense" xy="281,1012" pivot="0,0.5" size="38,42" group="n29_tjy8" fontSize="30" color="#68b9db" text="10"/>
+    <text id="n33_tjy8" name="txtGold" xy="506,948" pivot="0,0.5" size="89,42" group="n29_tjy8" fontSize="30" color="#ffffff" text="99999"/>
+    <group id="n29_tjy8" name="n29" xy="54,854" size="602,200" advanced="true">
+      <relation target="n18_tjy8" sidePair="top-bottom"/>
+    </group>
+    <component id="n10_tjy8" name="btnEnterGame" src="tjy87" fileName="Com/BtnEnter.xml" xy="149,1124" size="438,111">
+      <relation target="n29_tjy8" sidePair="bottom-top"/>
+      <Button title="Enter Game"/>
+    </component>
+  </displayList>
+</component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <displayList>
+    <image id="n6_gs1z" name="n6" src="gs1z5" fileName="Img/background_01_loading_1920.png" xy="-649,0" pivot="0.5,0.5" size="1999,1280"/>
+    <image id="n8_gs1z" name="n8" src="gs1z3" fileName="Img/label_ribbon_01.png" xy="65,193" pivot="0.5,0.5" size="625,95"/>
+    <text id="n9_gs1z" name="n9" xy="-21,180" pivot="0.5,0.5" size="786,88" fontSize="67" color="#ffffff" align="center" vAlign="middle" autoSize="none" faceDilate="0.133" text="Line Warrior"/>
+    <component id="n11_gs1z" name="loading" src="gs1z9" fileName="Com/GameloadBar.xml" xy="10,1093" pivot="0.5,0.5" size="702,87">
+      <ProgressBar value="50" max="100"/>
+    </component>
+  </displayList>
+</component>

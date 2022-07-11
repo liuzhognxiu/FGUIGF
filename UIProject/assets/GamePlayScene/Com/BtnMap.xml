@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="70,70" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <controller name="IsMarster" pages="0,,1," selected="1"/>
+  <displayList>
+    <loader id="n0_pf9z" name="loadQuality" xy="0,0" pivot="0.5,0.5" size="70,70" url="ui://5k4mce2ltjy81w" fill="scale">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <loader id="n1_pf9z" name="loadIcon" xy="5,5" pivot="0.5,0.5" size="60,58" aspect="true" url="ui://5k4mce2ltjy87g" fill="scale" shrinkOnly="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n2_pf9z" name="n2" src="tjy81v" fileName="Component/Frame/frame_itemframe_01_s.png" pkg="5k4mce2l" xy="-10,-10" pivot="0.5,0.5" size="90,88" aspect="true">
+      <gearDisplay controller="button" pages="1,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n3_vbfr" name="n3" src="tjy8mt" fileName="Component/Demo_Icon/icon_white_sword_02.png" pkg="5k4mce2l" xy="1,43" pivot="0.5,0.5" size="27,22" group="n10_vbfr" aspect="true" color="#d14b39">
+      <gearDisplay controller="IsMarster" pages="1"/>
+    </image>
+    <image id="n4_vbfr" name="n4" src="tjy8n6" fileName="Component/Demo_Icon/set_icon_equip_shield.png" pkg="5k4mce2l" xy="27,53" pivot="0.5,0.5" size="14,14" group="n10_vbfr" aspect="true" visible="false" color="#68b9db">
+      <gearDisplay controller="IsMarster" pages="1"/>
+    </image>
+    <image id="n5_vbfr" name="n5" src="tjy8o8" fileName="Component/Demo_Icon/set_icon_stat_0.png" pkg="5k4mce2l" xy="43,46" pivot="0.5,0.5" size="24,20" group="n10_vbfr" aspect="true" color="#45d0b2"/>
+    <text id="n7_vbfr" name="txtAttack" xy="1,30" pivot="0.5,0.5" size="29,49" group="n10_vbfr" scale="0.5,0.5" fontSize="36" color="#ffffff" autoSize="none" text="5"/>
+    <text id="n8_vbfr" name="txtDefense" xy="26,43" pivot="0.5,0.5" size="17,34" group="n10_vbfr" scale="0.5,0.5" visible="false" fontSize="24" color="#ffffff" text="5"/>
+    <text id="n9_vbfr" name="txtHP" xy="44,31" pivot="0.5,0.5" size="24,49" group="n10_vbfr" scale="0.5,0.5" fontSize="36" color="#ffffff" text="5"/>
+    <group id="n10_vbfr" name="n10" xy="1,30" size="67,50" advanced="true">
+      <gearDisplay controller="IsMarster" pages="1"/>
+    </group>
+    <text id="n11_elli" name="txtxy" xy="1,2" pivot="0.5,0.5" size="68,64" visible="false" fontSize="24" color="#ff0000" autoSize="none" text="1，8"/>
+  </displayList>
+  <Button mode="Check"/>
+  <transition name="t0">
+    <item time="2" type="Shake" target="n0_pf9z" value="2,0.5"/>
+    <item time="2" type="Shake" target="n1_pf9z" value="2,0.5"/>
+    <item time="2" type="Shake" target="n2_pf9z" value="2,0.5"/>
+  </transition>
+  <transition name="XiaoShi">
+    <item time="0" type="Size" target="n0_pf9z" tween="true" startValue="70,70" endValue="0,0" duration="12"/>
+    <item time="0" type="Size" target="n1_pf9z" tween="true" startValue="60,60" endValue="0,0" duration="12"/>
+    <item time="0" type="Size" target="n2_pf9z" tween="true" startValue="90,88" endValue="0,0" duration="12"/>
+    <item time="13" type="Size" target="n0_pf9z" value="70,70"/>
+    <item time="13" type="Size" target="n1_pf9z" value="60,60"/>
+    <item time="13" type="Size" target="n2_pf9z" value="90,88"/>
+  </transition>
+  <transition name="BeAttack">
+    <item time="0" type="Color" target="n1_pf9z" tween="true" startValue="#ffffff" endValue="#ff0000" duration="6"/>
+    <item time="6" type="Color" target="n1_pf9z" tween="true" startValue="#ff0000" endValue="#ffffff" duration="6"/>
+  </transition>
+  <transition name="Attack">
+    <item time="0" type="Size" target="n1_pf9z" tween="true" startValue="60,58" endValue="100,100" duration="6"/>
+    <item time="6" type="Shake" target="n1_pf9z" value="3,0.5"/>
+    <item time="6" type="Size" target="n1_pf9z" tween="true" startValue="100,100" endValue="60,58" duration="6"/>
+  </transition>
+</component>

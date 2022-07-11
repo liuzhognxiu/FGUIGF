@@ -1,0 +1,19 @@
+using FairyGUI;
+
+namespace MetaArea.Hotfix
+{
+    public partial class {ClassName}Item : {BaseType}
+    {
+    
+        public FGUI{ClassName}ItemLogic ItemLogic;
+        #region declare start, auto generate not change
+		#endregion declare end
+        public override void ConstructFromXML(FairyGUI.Utils.XML cxml)
+        {
+            base.ConstructFromXML(cxml);
+			#region define start, auto generate not change
+			#endregion define end
+			ItemLogic =  new FGUI{ClassName}ItemLogic(this);
+        }
+    }
+}

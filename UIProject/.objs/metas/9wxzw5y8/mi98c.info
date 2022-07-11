@@ -1,0 +1,27 @@
+{
+  "objectStatus": {
+    "n43_mv3a": {
+      "hidden": true
+    },
+    "n42_skat": {
+      "hidden": true
+    },
+    "n13_mi98": {
+      "collapsed": true
+    },
+    "n27_tdt1": {
+      "hidden": true
+    },
+    "n38_tdt1": {
+      "hidden": true
+    },
+    "n2_mi98": {
+      "collapsed": true
+    },
+    "n47_wsc0": {
+      "hidden": true
+    }
+  },
+  "fitScreen": "FitSize",
+  "adaptiveTest": true
+}
